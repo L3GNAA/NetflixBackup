@@ -1,851 +1,761 @@
-
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Zachary Jordan is working to create accessible and fun projects that try to address societal issues.">
-    <meta name="keywords" content="Zachary, Jordan, Portfolio">
-    <meta name="author" content="Zachary Jordan">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico"/>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href = "css/style.css" rel = "stylesheet" />    
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <title>Zachary Jordan</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angel Contreras — Netflix-style</title>
+  <meta name="color-scheme" content="dark">
 
-    <script defer data-domain="zachjordan.io" src="https://plausible.io/js/script.js"></script>
-
-</head>
-<body id = "top" onload="checkScrollPosition()"class = "bg-gray-50">
-
-    <nav id = "nav-on-scroll" style = "background:rgb(53,211,153);background:rgba(53,211,153, 0.975);" class = "fixed hidden md:block lg:block duration-300 ease nav-top-hidden shadow left-0 w-full p-4 text-gray-900 z-40">
-        <div class = "w-12/12 sm:w-11/12 md:w-12/12 lg:w-9/12 col-centered">
-            <a href = "#top" class = "kill-link-style xl:mr-6"><span class = "inline-block animate__animated animate__fadeInDown rounded-md border-4 border-gray-900 text-gray-900 select-none p-2 inline-block text-2xl rxl:text-3xl font-extrabold">
-                ZJ
-            </span></a>
-            <a href = "#projects" class = "inline-block animate__animated animate__fadeInDown kill-link-style delay1 ml-6 mr-3 duration-300 text-2xl xl:text-3xl cursor-pointer underline--magical-2 font-extrabold">Projects</a>
-            <a href = "#extras" class = "inline-block animate__animated animate__fadeInDown kill-link-style delay1 ml-6 mr-3 duration-300 text-2xl xl:text-3xl cursor-pointer underline--magical-2 font-extrabold">Extras</a>
-            <a href = "#media" class = "inline-block animate__animated animate__fadeInDown kill-link-style delay1 ml-6 mr-3 duration-300 text-2xl xl:text-3xl cursor-pointer underline--magical-2 font-extrabold">Media</a>
-            <span onclick="toggleContactMe('show')" class = "inline-block animate__animated animate__flipInX delay4 ml-6 mr-3 duration-300 float-right text-2xl xl:text-3xl cursor-pointer border-4 rounded-md px-4 p-2 border-gray-900 hover:bg-gray-900 hover:text-gray-50 font-extrabold">Contact Me</span>
-        </div>
-    </nav>
-    
-
-  <div id = "contact-me-pane" style = "left:0;right:0;overflow-y:auto !important;margin-left: auto;margin-right: auto;max-height: 83%;"class = "fixed duration-500 ease-in-out border-4 text-center border-green-400 border-b-0 p-6 md:p-12 ease contact-me-inactive rounded-t-xl bg-gray-900 text-gray-50 shadow-xl left-0 z-30 w-11/12 auto">
-    <div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.620" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-    </div>    
-    <div class = "text-2xl no-select md:text-3xl lg:text-5xl font-extrabold">Contact Me</div>
-        <div class = "absolute right-6 top-4 md:right-16 md:top-12">
-            <svg xmlns="http://www.w3.org/2000/svg" onclick="toggleContactMe('hide')" class="cursor-pointer h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.420" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-        </div>
-
-        <div class = "mt-10 text-left">
-            <div class = "text-gray-50 text-xl md:text-2xl font-extrabold">Your Name</div>
-            <form action="https://formspree.io/f/mvolpedn"
-            method="POST">
-            <input type = "text" required name="name" class = "w-full mt-2 p-4 rounded-md font-bold text-gray-900 shadow text-xl md:text-2xl" placeholder="Enter name" />
-
-            <div class = "text-gray-50 text-xl mt-4 md:text-2xl font-extrabold">Your Email</div>
-            <input type = "email" required name="email" class = "w-full mt-2 p-4 rounded-md shadow text-xl text-gray-900 font-bold md:text-2xl" placeholder="Enter email" />
-
-            <div class = "text-gray-50 text-xl mt-4 md:text-2xl font-extrabold">Your Message</div>
-            <textarea type = "text" required name="message" class = "w-full mt-2 p-4 custom-textarea rounded-md shadow text-gray-900 font-bold text-xl md:text-2xl" placeholder="Enter email"></textarea>
-       
-            <button type="submit" class = "no-select px-4 p-2 text-xl mt-5 md:text-2xl lg:text-3xl border-4 border-gray-50 inline-block rounded-md cursor-pointer duration-200 hover:bg-gray-50 hover:text-gray-900 font-extrabold">Send Message <svg xmlns="http://www.w3.org/2000/svg" class="h-7 -mt-1 ml-1 inline-block w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" class = "inline-block" stroke-linejoin="round" stroke-width="3.420" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg></button>
-            </form>
-        </div>
-  </div>
-
-
-    <nav class = "block bg-white shadow md:hidden">
-        <div style = "z-index: 999999999999999999999999999999999 !important;" class = "fixed top-10 right-6">
-            <svg onclick="openMobileNav()" xmlns="http://www.w3.org/2000/svg" class="duration-200 p-1.5 bg-gray-100 hover:bg-gray-200 h-12 w-12 rounded-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.620" d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-        </div>
-    </nav>
-
-    <div id = "mobile-nav" style = "z-index: 999999999999999999999999999999999999999999999 !important;" class = "fixed block md:hidden duration-300 ease bg-gray-100 offscreen-nav offscreen-nav-hidden">
-        <div class = "absolute top-10 right-4">  
-              <svg onclick="closeMobileNav()" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.620" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-        </div>
-
-        <div class = "relative w-12/12 text-center">
-            <span onclick = "scrollToSection('top')" class = "inline-block relative top-11 col-center rounded-md animate__animated xl:mr-6 animate__fadeInDown border-4 border-gray-900 text-gray-900 select-none p-2 inline-block text-2xl xl:text-3xl font-extrabold">
-                ZJ
-            </span>
-        </div>
-
-
-        <div class = "mt-16 text-center col-centered">
-            <div class = "text-4xl font-extrabold">
-                <span onclick = "scrollToSection('projects')" class = "underline--magical">
-                    Projects
-                </span>
-            </div>
-
-            <div class = "text-4xl mt-4 font-extrabold">
-                <span onclick = "scrollToSection('extras')" class = "underline--magical">
-                    Extras
-                </span>
-            </div>
-
-            <div class = "text-4xl mt-4 font-extrabold">
-                <span onclick = "scrollToSection('media')" class = "underline--magical">
-                    Media
-                </span>
-            </div>
-
-            <div class = "text-3xl mt-8 relative font-extrabold">
-                <span onclick = "openContact()" class = "border-4 px-4 py-2 border-gray-900 rounded-md">
-                    Contact Me
-                </span>
-            </div>
-        </div>
-
-    </div>
-
-    <div class = "h-6 fixed z-50 md:relative block w-full z-50 bg-green-400">
-
-    </div>
-
-
-  <div class = "xl:p-20 pt-10 xl:pb-22">
-    <div class = "w-12/12 sm:w-11/12 md:w-12/12 lg:w-9/12 col-centered">
-        <span class = "hidden md:block lg:block">
-        <a href = "#top" class = "kill-link-style">
-            <span class = "inline-block rounded-md animate__animated xl:mr-6 animate__fadeInDown border-4 border-gray-900 text-gray-900 select-none p-2 inline-block text-2xl xl:text-3xl font-extrabold">
-                ZJ
-            </span>
-        </a>
-      
-        <a href = "#projects" class = "inline-block animate__animated animate__fadeInDown kill-link-style delay1 ml-6 mr-3 duration-300 text-2xl xl:text-3xl cursor-pointer underline--magical font-extrabold">Projects</a>
-        <a href = "#extras" class = "inline-block animate__animated animate__fadeInDown kill-link-style delay2 ml-6 mr-3 duration-300 text-2xl xl:text-3xl cursor-pointer underline--magical font-extrabold">Extras</a>
-        <a href = "#media" class = "inline-block animate__animated animate__fadeInDown kill-link-style delay3 ml-6 mr-3 duration-300 text-2xl xl:text-3xl cursor-pointer underline--magical font-extrabold">Media</a>
-        <span onclick="toggleContactMe('show')" class = "inline-block animate__animated animate__flipInX delay4 ml-6 mr-3 duration-300 float-right text-2xl xl:text-3xl cursor-pointer border-4 px-2 xl:px-4 p-2 border-gray-900 hover:bg-gray-900 hover:text-gray-50 rounded-md font-extrabold">Contact Me</span>
-        </span>
-
-        <span class = "block md:hidden lg:hidden">
-            <a href = "#top" class = "kill-link-style">
-                <span class = "inline-block hidden w-full text-center animate__animated animate__fadeInDown border-4 border-gray-900 text-gray-900 select-none p-2 inline-block text-2xl xl:text-3xl font-extrabold">
-                    ZJ
-                </span>
-              
-            </a>
-        </span>
-        <div class = "mt-20">
-            <div class = "w-full text-center">
-                <img id = "zach-image" style="border-radius:100%;" onclick = "iterateClickCount()" src = "img/zach.png" alt = "Photo of Zachary Jordan" class = "cursor-pointer xl:mt-10 inline-block animate__animated animate__fadeIn delay2 border-gray-900 duration-300 ease hover:border-green-400 shadow-md border-8 h-80 w-80 md:w-96 md:h-96 inline-block" />
-            </div>
-            
-            <div class = "animate__animated animate__fadeInUp p-14 delay2 mt-10 xl:mt-14 text-3xl lg:text-5xl font-extrabold text-gray-900">
-                Hey, I'm <span class = "text-green-500">Zach Jordan.</span> Here, you can check out what I'm working on. I try my best to create things with &#10084;
-            </div>
-            <!--
-        -->
-        </div>
-
-    </div>
-
+  <!-- Free fallback; swap to licensed Netflix Sans via @font-face if you have it -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   
-  </div>
+  <!-- Force page to start at top -->
+  <script>
+    // MUST be in head to prevent any scroll before page loads
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
 
-  <div class = "p-4 md:p-20 bg-gray-900 text-gray-50">
-    <div class = "sm:w-12/12 animate__animated animate__fadeIn delay2 text-center md:w-12/12 col-centered">
-        <div class = "text-4xl w-full md:text-5xl lg:text-6xl pt-10 md:pt-0 font-extrabold">Featured Work</div>
-        <div class = "grid grid-cols-12 mt-8">
-           
-            <div class = "col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-4 p-4">
-                <a href = "https://www.animalalliancepledge.org/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer move-up-slightly duration-200 shadow-md hover:shadow-xl">
-                <div class = "project-picture rounded-t-2xl h-60 w-full animal-demo">
+  <style>
+    :root{
+      --bg:#141414; --ink:#fff; --muted:#e5e5e5; --ink-2:#b3b3b3;
+      --panel:#000; --accent:#E50914; --rail:#1a1a1a; --thumb:#4a4a4a;
+      --ring:rgba(255,255,255,.14);
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    html,body{height:100%; overflow-x:hidden}
+    html{scroll-behavior:smooth; overflow-y:scroll; position:relative}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      background:var(--bg); color:var(--ink); position:relative;
+    }
 
-                </div>
-                <div class = "project-description p-4 py-6 text-3xl font-extrabold text-center text-gray-900 bg-gradient-to-r from-green-300 to-green-400 rounded-b-2xl">
-                    Animal Alliance Pledge
-                    <div class = "font-bolder mt-2 text-xl ">Helping the Planet by Helping Animals</div>
-                </div>
-               
-            </div>
-                </a>
-                
-            </div>
-          
+    .nf{
+      font-family:"Netflix Sans","Bebas Neue",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      letter-spacing:.015em;
+      text-transform:uppercase;
+    }
 
-            <div class = "col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-4 p-4">
-                <a href = "https://www.easy-emdr.com/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer move-up-slightly duration-200 shadow-md hover:shadow-xl">
-                <div class = "project-picture rounded-t-2xl h-60 w-full easy-emdr-demo">
+    /* --- Intro (Netflix style with text) --- */
+    .netflix-intro{
+      position:fixed; inset:0; display:grid; place-items:center;
+      background:#000; z-index:10000; animation:hideIntro .5s ease 2.6s forwards;
+    }
+    .netflix-logo{ 
+      display:grid; place-items:center; 
+      animation:logoZoom 1.8s ease both; 
+    }
+    .intro-text{
+      font-family:"Netflix Sans","Bebas Neue",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      font-weight:900;
+      font-size:clamp(48px, 12vw, 140px);
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      color:#E50914;
+      margin:0;
+      text-shadow:
+        0 0 20px rgba(229,9,20,.6),
+        0 0 40px rgba(229,9,20,.4),
+        0 0 60px rgba(229,9,20,.2);
+      position:relative;
+      /* Bridge arch effect using inline-block spans */
+      display:flex;
+      justify-content:center;
+      align-items:baseline;
+    }
+    .intro-text span{
+      display:inline-block;
+      position:relative;
+    }
+    /* Create arch by adjusting individual letter positions */
+    .intro-text span:nth-child(1) { transform:translateY(30px); }
+    .intro-text span:nth-child(2) { transform:translateY(20px); }
+    .intro-text span:nth-child(3) { transform:translateY(12px); }
+    .intro-text span:nth-child(4) { transform:translateY(7px); }
+    .intro-text span:nth-child(5) { transform:translateY(3px); }
+    .intro-text span:nth-child(6) { transform:translateY(1px); }
+    .intro-text span:nth-child(7) { transform:translateY(0px); } /* Peak */
+    .intro-text span:nth-child(8) { transform:translateY(0px); } /* Peak */
+    .intro-text span:nth-child(9) { transform:translateY(1px); }
+    .intro-text span:nth-child(10) { transform:translateY(3px); }
+    .intro-text span:nth-child(11) { transform:translateY(7px); }
+    .intro-text span:nth-child(12) { transform:translateY(12px); }
+    .intro-text span:nth-child(13) { transform:translateY(20px); }
+    .intro-text span:nth-child(14) { transform:translateY(30px); }
+    .intro-text span:nth-child(15) { transform:translateY(40px); }
+    @keyframes logoZoom{ 
+      0%{transform:scale(.6);opacity:0}
+      55%{transform:scale(1.12);opacity:1}
+      100%{transform:scale(1)}
+    }
+    @keyframes hideIntro{to{opacity:0; visibility:hidden}}
 
-                </div>
-                <div class = "project-description p-4 py-6 text-3xl font-extrabold text-center text-gray-900 bg-gradient-to-r from-purple-300 to-purple-400 rounded-b-2xl">
-                    Easy EMDR 
-                    <div class = "font-bolder mt-2 text-xl ">Simplifying Telehealth for EMDR Therapists</div>
-                </div>
-                
-            </div>
-            </a>
-                
-            </div>
-              
-            <div class = "col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-4 p-4">
-                <a href = "https://www.boycottbuddy.app/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer move-up-slightly duration-200 shadow-md hover:shadow-xl">
-                <div class = "project-picture rounded-t-2xl h-60 w-full boycott-demo">
+    /* --- Who's Watching --- */
+    .profiles{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+      background:#000; z-index:9000;
+    }
+    .profiles.show{ display:flex; animation:fadeIn .35s ease both; }
+    .profiles-wrap{ width:min(1000px,92vw); margin:auto; text-align:center; }
+    .profiles h2{
+      font:900 clamp(20px,3.2vw,32px)/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:#fff; margin:0 0 22px;
+    }
 
-                </div>
-                <div class = "project-description p-4 py-6 text-3xl font-extrabold text-center text-gray-900 bg-gradient-to-r from-blue-300 to-blue-400 rounded-b-2xl">
-                    Boycott Buddy
-                    <div class = "font-bolder mt-2 text-xl ">Consumer transparency resources</div>
-                </div>
-               
-            </div>
-                </a>
-                
-            </div>
-           
-         
-            
-        </div>
-    </div>
-  </div>
+    .grid{
+      display:grid; gap:22px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      place-items:center;
+    }
+    @media (max-width: 680px){
+      .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+    }
 
-  <div id = "projects" class = "p-4 md:pt-24 pb-26 xl:p-20 bg-gray-50 text-gray-900">
-    <div class = "sm:w-12/12 md:w-12/12 col-centered">
-      <div class = "p-4 pt-8 text-4xl md:text-6xl font-extrabold">My Projects</div>
-      <div class = "p-4 text-2xl md:text-4xl w-10/12 font-extrabold">I love to create things, and I'm always working on something new! You can view some of my favorite projects below.</div>
+    .tile{
+      display:grid; gap:10px; place-items:center; cursor:pointer; text-decoration:none;
+      user-select:none; outline:none; background:transparent; border:0;
+    }
+    .tile.disabled{ cursor:not-allowed; }
+    .avatar{
+      width:min(32vw,180px); height:min(32vw,180px);
+      border-radius:10px; overflow:hidden;
+      border:2px solid transparent; box-shadow:0 0 0 0 rgba(255,255,255,.0);
+      transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease, filter .12s ease;
+      display:grid; place-items:center;
+    }
+    .tile:not(.disabled):focus .avatar,
+    .tile:not(.disabled):hover .avatar{
+      transform:scale(1.04);
+      border-color:#fff;
+      box-shadow:0 0 0 4px rgba(255,255,255,.12);
+      filter:brightness(1.06);
+    }
+    .tile.disabled .avatar{ filter:grayscale(1) brightness(.75); border-color:transparent; }
+    .label{
+      font-weight:800; color:#a3a3a3; letter-spacing:.04em; font-size:14px;
+      text-transform:none;
+    }
 
-      <div class = "grid grid-cols-12">
+    /* Avatar color blocks */
+    .av-recruiter { background:linear-gradient(180deg,#0DB5FF,#0070F3); }
+    .av-family    { background:linear-gradient(180deg,#25E26A,#0AA84B); }
+    .av-guest     { background:linear-gradient(180deg,#FFB21E,#FF7A00); }
 
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <span onclick="projectComingSoon()" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/bird.png" alt = "Flapitalism logo"  class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Flapitalism
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Corporate dystopia game</div>
-                </div>
-                
-                </div>
-            </span>
-          </div>
+    .icon{ width:56%; height:56%; display:block }
+    .icon svg{ width:100%; height:100%; fill:#fff }
 
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a target="_blank" href = "https://www.stormthelines.xyz/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/goose.svg" alt = "Storm the lines logo"  class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Storm the Lines
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Online Animal Activism</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
+    .hide{ display:none !important; }
 
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a target="_blank" href = "pendulum-city.html" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/butterfly.webp" alt = "Pendulum City Logo"  class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Pendulum City
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Explore the butterfly effect</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
+    .main{ opacity:0; }
+    .main.show{ animation:fadeIn .6s ease forwards; }
+    @keyframes fadeIn{ to{ opacity:1 } }
 
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://www.boycottbuddy.app/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/boycott-buddy.png" alt = "Boycott Buddy Logo"  class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Boycott Buddy
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Consumer Transparency</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
+    /* --- Navbar --- */
+    .navbar{
+      position:fixed; inset:0 auto auto 0; width:100%;
+      padding:14px clamp(16px,4vw,48px);
+      display:flex; align-items:center; gap:32px;
+      z-index:1000;
+      background:linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+      transition:background .25s ease, box-shadow .25s ease;
+    }
+    .navbar.scrolled{ background:#0f0f0f; box-shadow:0 2px 0 rgba(255,255,255,.04) inset; }
+    .brand{
+      background:none; border:0; padding:0; margin:0;
+      font-weight:900; color:var(--accent); letter-spacing:-.04em; font-size:clamp(22px,3.2vw,32px);
+      cursor:pointer;
+      flex-shrink:0;
+    }
 
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://www.fucknestle.art/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/finger.png" alt = "Fuck Nestle Logo"  class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        F*ck Nestlé
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">All about Nestlé</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://www.animalalliancepledge.org/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/logo-aap.png" alt = "Animal Alliance Pledge Logo"  class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Animal Alliance Pledge
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Animal Activism Support</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <div onclick="projectPaused()" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/collab.jpg" alt = "Collab Spot Logo" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Collab Spot
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Collaborative Website Iteration</div>
-                </div>
-                
-                </div>
-            </div>
-          </div>
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://apps.apple.com/us/app/boycott-buddy-shop-ethical/id6503020008" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/boycott-buddy.png" alt = "Boycott Buddy Logo"  class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Boycott Buddy App
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Official Boycott Buddy App</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://www.supportbodilyautonomy.com/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/love.png" alt = "Bodily Autonomy Logo" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Support Bodily Autonomy
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Reproductive Freedom Resources</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-        <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://www.easy-emdr.com/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/easy-logo.png" alt = "Easy EMDR Logo" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Easy EMDR
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Simplifying EMDR Telehealth</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://safesubstance.com/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/corrosive.png" alt = "Safe Substance Logo" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Safe Substance
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Interactive Harm Reduction</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "the_sea/thesea.html" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/wave.png" alt = "Mariana Trench Visualization" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        The Sea
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold  text-xl lg:text-2xl">Exploring the Mariana Trench</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "the_rich_are_really_rich/index.html" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/money.png" alt = "Rich Are Really Rich Logo" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Rich Are Really Rich
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold  text-xl lg:text-2xl">Visualizing Extreme Wealth</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://apps.apple.com/us/app/easy-emdr/id1594213288?ign-mpt=uo%3D2" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/easy-logo.png" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Easy EMDR App
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">A modern EMDR app</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-         
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "cure_it_project/index.html" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/cureit.png" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        The Cure It Project
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Streamlined Cancer Education</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://www.easy-emdr.com/oldtool.html" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/eye.jpg" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-3xl font-extrabold text-gray-900">
-                        Easy EMDR Classic
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Free EMDR BLS</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <span onclick="projectRetired()" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/contextualize.png" alt = "Contextualize Me Logo" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-2xl lg:text-3xl font-extrabold text-gray-900">
-                        Contextualize Me
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold  text-xl lg:text-2xl">Effective Altruism Resources</div>
-                </div>
-                
-                </div>
-            </span>
-          </div>
-          
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <a href = "https://www.schaumburgflyingclub.org/" target = "_blank" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    <div class = "absolute top-2 left-2 text-md font-extrabold rounded-lg p-1 bg-gray-900 text-gray-50">Contract Job</div>
-                    <div class = "w-full text-center">
-                        <img src = "img/plane.png" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-3xl font-extrabold text-gray-900">
-                        Flying Club
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Website for Aviation Fans</div>
-                </div>
-                
-                </div>
-            </a>
-          </div>
-
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <span onclick="projectRetired()" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    <div class = "absolute top-2 left-2 text-md font-extrabold rounded-lg p-1 bg-gray-900 text-gray-50">Contract Job</div>
-                    <div class = "w-full text-center">
-                        <img src = "img/blood-orange.png" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-3xl font-extrabold text-gray-900">
-                        Blood Orange
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Website for Author</div>
-                </div>
-                
-                </div>
-            </span>
-          </div>
-
-          <div class = "col-span-12 md:col-span-6 lg:col-span-4 p-4">
-            <span onclick="projectRetired()" class = "kill-link-style">
-                <div class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    <div class = "absolute top-2 left-2 text-md font-extrabold rounded-lg p-1 bg-gray-900 text-gray-50">Contract Job</div>
-                    <div class = "w-full text-center">
-                        <img src = "img/laptop.png" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-3xl font-extrabold text-gray-900">
-                        Got/It Software
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold text-xl lg:text-2xl">Website for Startup</div>
-                </div>
-                
-                </div>
-            </span>
-          </div>
-
-          <div class = "col-span-12 hidden md:col-span-6 lg:col-span-4 p-4">
-            
-                <div onclick = "showRetiredProjects()" class = "cursor-pointer text-center bg-gradient-to-r from-white to-gray-100 duration-200 ease move-up-slightly hover:shadow-xl shadow-md p-4 w-full h-auto border-4 text-gray-900 border-gray-900 rounded-lg">
-                    
-                    <div class = "w-full text-center">
-                        <img src = "img/retired-icon.jpeg" class = "col-centered rounded-md mt-2 mb-1 h-14 w-14" />
-                    </div>
-                    <div class = "mt-2 ">
-                    <span class = "text-3xl font-extrabold text-gray-900">
-                        Retired Projects
-                    </span>
-                    <div class = "mt-1 text-gray-900 font-extrabold  text-2xl">Some Fun Older Projects</div>
-                </div>
-                
-                </div>
-        
-          </div>
-      </div>
-    </div>
-  </div>
-
-  <div id = "extras" class = "p-4 md:pt-24 pb-26 xl:p-20 bg-gray-900 text-gray-50">
-    <div class = "sm:w-12/12 md:w-12/12 col-centered">
-      <div class = "p-4 pt-8 text-4xl md:text-6xl font-extrabold">Extras</div>
-      <div class = "p-4 text-2xl md:text-4xl w-10/12 font-extrabold">An incomplete list of some videos and writings that I've made, covering a wide variety of topics. Check them out if you like!</div>
-
-      <div class = "grid grid-cols-12">
-
-        <div class = "col-span-12 md:col-span-5 p-4">
-            <a href = "https://www.easy-emdr.com/blog.html" target="_blank" class = "kill-link-style">
-                <div class = "cursor-pointer move-up-slightly select-none shadow hover:shadow-xl  rounded-lg bg-green-400 hover:bg-green-500 p-10 text-2xl md:text-4xl text-gray-900">
-                    <div class = "font-extrabold text-gray-900"><img src = "img/easy-logo.png" class = "inline-block rounded-lg mr-3 bg-gray-50 shadow h-16 w-16 -mt-2">Easy EMDR Blog</div>
-                    <div class = "font-extrabold text-lg md:text-2xl mt-2">Writing about EMDR and mental health.</div>
-                </div>
-            </a>
-        </div>  
-        
-        <div class = "col-span-12 md:col-span-7 p-4">
-            <a href = "https://www.youtube.com/channel/UCGEWlEUCsPWaIkMNwpNROzQ" target="_blank" class = "kill-link-style">
-                <div class = "cursor-pointer move-up-slightly select-none rounded-lg shadow hover:shadow-xl bg-green-400 hover:bg-green-500 p-10 text-gray-900 text-2xl md:text-4xl">
-                    <div class = "font-extrabold text-gray-900"><img src = "img/logo.jpg" class = "inline-block rounded-lg mr-3 shadow h-16 w-16 -mt-2">Youtube Channel</div>
-                    <div class = "font-extrabold text-lg md:text-2xl mt-2">
-                        My disorganized playground of a Youtube channel
-
-                       :)</div>
-                </div>
-            </a>
-        </div>
-      </div>
-
-      
-
-      <div class = "mt-1 text-left w-full p-4">
-        <a href = "https://www.animalalliancepledge.org/john-oberg-profile.html" target = "_blank" class = "kill-link-style">
-            <div class = "cursor-pointer p-6 bg-transparent border-4 border-green-400 w-full h-full duration-200 move-up-slightly rounded-lg ease text-green-400 hover:text-gray-900 hover:bg-green-400 hover-padding">
-                <div class = "font-extrabold text-3xl md:text-4xl inherit">
-                    Bringing Animal Advocacy to Millions
-                </div>   
-                <div class = "font-bold italic mt-2 text-2xl md:text-3xl text-white">
-                    A profile of an activist who reaches millions with a message for the kinder treatment of animals and our planet. 
-                </div>
-            </div>
-        </a>
-      </div>
-
-      <div class = "mt-1 text-left w-full p-4">
-        <a href = "https://www.easy-emdr.com/effective-altruism.html" target = "_blank" class = "kill-link-style">
-            <div class = "cursor-pointer p-6 bg-transparent border-4 border-green-400 w-full h-full duration-200 move-up-slightly rounded-lg ease text-green-400 hover:text-gray-900 hover:bg-green-400 hover-padding">
-                <div class = "font-extrabold text-3xl md:text-4xl inherit">
-                    Fighting Global Trauma with Effective Altruism
-                </div>   
-                <div class = "font-bold italic mt-2 text-2xl md:text-3xl text-white">
-                    Reflecting on our efforts to fight global trauma with effective altruism.
-                </div>
-            </div>
-        </a>
-      </div>
-
-      <div class = "mt-1 text-left w-full p-4">
-        <a href = "https://www.easy-emdr.com/malaria.html" target = "_blank" class = "kill-link-style">
-            <div class = "cursor-pointer p-6 bg-transparent border-4 border-green-400 w-full h-full duration-200 move-up-slightly rounded-lg ease text-green-400 hover:text-gray-900 hover:bg-green-400 hover-padding">
-                <div class = "font-extrabold text-3xl md:text-4xl inherit">
-                    Easy EMDR is Joining the Fight Against Malaria!
-                </div>   
-                <div class = "font-bold italic mt-2 text-2xl md:text-3xl text-white">
-                    A blog post about our commitment to donate 10% of all profits to help fight preventable diseases.
-                </div>
-            </div>
-        </a>
-      </div>
-   
-      <div class = "mt-1 text-left p-4 w-full">
-        <a href = "https://www.elephantjournal.com/now/the-importance-of-universal-empathy/" target = "_blank" class = "kill-link-style">
-        <div class = "cursor-pointer p-6 bg-transparent border-4 border-green-400 w-full h-full duration-200 move-up-slightly rounded-lg ease text-green-400 hover:text-gray-900 hover:bg-green-400 hover-padding">
-            <div class = "font-extrabold text-3xl md:text-4xl inherit">
-                The Importance of Universal Empathy
-            </div>   
-            <div class = "font-bold mt-2 italic text-2xl md:text-3xl text-white">
-                Writing about the psychology behind disregarding others and the importance of recognizing this.
-            </div>
-        </div>
-        </a>
-      </div>
-
-      <div class = "mt-1 text-left p-4 w-full">
-        <a href = "https://www.elephantjournal.com/now/how-climate-change-hurts-the-most-marginalized-among-us/" target = "_blank" class = "kill-link-style">
-        <div class = "cursor-pointer p-6 bg-transparent border-4 border-green-400 w-full h-full duration-200 move-up-slightly rounded-lg ease text-green-400 hover:text-gray-900 hover:bg-green-400 hover-padding">
-            <div class = "font-extrabold text-3xl md:text-4xl inherit">
-                How Climate Change Harms the Most Marginalized Among Us
-            </div>   
-            <div class = "font-bold italic mt-2 text-2xl md:text-3xl text-white">
-                An article about climate change and its impact on already disadvantaged communities.
-            </div>
-        </div>
-        </a>
-      </div>
-
-      <div class = "mt-1 text-left p-4 w-full">
-        <a href = "https://themacweekly.com/76607/opinion/attend-fossil-free-macs-sit-in/" target = "_blank" class = "kill-link-style">
-        <div class = "cursor-pointer p-6 bg-transparent border-4 border-green-400 w-full h-full duration-200 move-up-slightly rounded-lg ease text-green-400 hover:text-gray-900 hover:bg-green-400 hover-padding">
-            <div class = "font-extrabold text-3xl md:text-4xl inherit">
-               The Importance of Fossil Free Mac's Sit-In
-            </div>   
-            <div class = "font-bold italic mt-2 text-2xl md:text-3xl text-white">
-                Macalester has millions invested in Fossil Fuels — something that students have resisted.
-            </div>
-        </div>
-        </a>
-      </div>
-
-    </div>
-  </div>
-
-  <div id = "media" class = "p-4 md:pt-24 pb-26 xl:p-20 bg-gray-50 text-gray-900">
-    <div class = "sm:w-12/12 md:w-12/12 col-centered">
-        <div class = "p-4 text-4xl md:text-6xl pt-12 md:pt-0 font-extrabold">Media</div>
-        <div class = "p-4 text-2xl md:text-4xl w-10/12 font-extrabold">I try to create projects that address social problems. Here's some media that has been written about projects I've worked on.</div>
-        
-    <div class = "grid grid-cols-12">
-
-        <div class = "col-span-12 flex flex-col p-4">
-            <a href = "https://www.startribune.com/macalester-senior-makes-eye-movement-therapy-accessible-and-affordable-with-an-app/573372791/" target="_blank" class = "kill-link-style">
-            <div class = "move-up-slightly p-6 md:p-10 rounded-lg shadow h-100 hover:shadow-xl cursor-pointer hover:bg-green-400 text-green-400 hover:text-gray-900 bg-gray-900 text-gray-50">
-                <div class = "font-extrabold inherit text-3xl md:text-4xl">Star Tribune Feature <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-8 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg></div>
-                <div class = "text-white font-bold italic mt-2 text-2xl">On making eye movement therapy more accessible.</div>
-            </div>
-            </a>
-        </div>
-
-        <div class = "col-span-12 flex flex-col md:col-span-6 p-4">
-            <a href = "https://www.daily.co/blog/easy-emdr-transforms-trauma-therapy-delivery-with-daily/" target="_blank" class = "kill-link-style">
-            <div class = "move-up-slightly p-6 md:p-10 rounded-lg shadow h-100 hover:shadow-xl cursor-pointer hover:bg-green-400 text-green-400 hover:text-gray-900 bg-gray-900 text-gray-50">
-                <div class = "font-extrabold inherit text-3xl md:text-4xl">Daily.co Feature <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-8 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg></div>
-                <div class = "text-white font-bold italic mt-2 text-2xl">Easy EMDR transforms trauma therapy delivery with Daily.</div>
-            </div>
-            </a>
-        </div>
-
-        <div class = "col-span-12 md:col-span-6 p-4">
-            <a href = "https://www.macalester.edu/news/2022/09/summer-at-a-startup/?fbclid=IwAR3R8lezNX3b-4tw96iZ8owB-maX64nnD_cjFM24j2nUZ0m772tOGgq7sjA" target="_blank" class = "kill-link-style">
-                <div class = "move-up-slightly p-6 md:p-10 rounded-lg shadow h-100 hover:shadow-xl cursor-pointer hover:bg-green-400 text-green-400 hover:text-gray-900 bg-gray-900 text-gray-50">
-                    <div class = "font-extrabold inherit text-3xl md:text-4xl">Summer at a Startup <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-8 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg></div>
-                    <div class = "text-white font-bold italic mt-2 text-2xl">
-                        Adding features for therapists with our talented intern.
-                       </div>
-                </div>
-            </a>
-        </div>
-
-        <div class = "col-span-12 md:col-span-6 p-4">
-           
-            <a href = "https://www.bizjournals.com/twincities/inno/stories/inno-insights/2019/09/18/minne-innos-2019-inno-under-25.html" target="_blank" class = "kill-link-style">
-            <div class = "move-up-slightly p-6 md:p-10 rounded-lg shadow hover:shadow-xl cursor-pointer hover:bg-green-400 text-green-400 hover:text-gray-900 bg-gray-900 text-gray-50">
-                <div class = "font-extrabold inherit text-3xl md:text-4xl">Top Rising Entrepreneur [2019] <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-8 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg></div>
-                <div class = "text-white font-bold italic mt-2 text-2xl">Recognition for Work on Easy EMDR.</div>
-            </div>
-            </a>
-        </div>
-
-     
-
-
-   
-        <div class = "col-span-12 flex flex-col md:col-span-6 p-4">
-            
-            <a href = "https://www.bizjournals.com/twincities/inno/stories/inno-events/2020/11/19/minne-inno-presents-its-2020-inno-under-25.html" target="_blank" class = "kill-link-style">
-                <div class = "move-up-slightly p-6 md:p-10 rounded-lg h-100 shadow hover:shadow-xl cursor-pointer hover:bg-green-400 text-green-400 hover:text-gray-900 bg-gray-900 text-gray-50">
-                    <div class = "font-extrabold inherit text-3xl md:text-4xl">Top Rising Entrepreneur [2020] <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-8 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg></div>
-                    <div class = "text-white font-bold italic mt-2 text-2xl">Easy EMDR's Second Year Included!</div>
-                </div>
-            </a>
-        </div>
+    .navlinks{display:flex; gap:22px; align-items:center; flex-wrap:wrap; flex:1;}
+    .navlinks a{
+      color:#e5e5e5; text-decoration:none; font-size:14px; font-weight:600;
+    }
+    .navlinks a:hover{color:var(--ink-2)}
     
+    /* Profile Avatar in Navbar */
+    .profile-avatar{
+      margin-left:auto;
+      width:40px; height:40px;
+      border-radius:6px;
+      background:linear-gradient(180deg,#0DB5FF,#0070F3);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      transition:transform .2s ease;
+      flex-shrink:0;
+    }
+    .profile-avatar:hover{
+      transform:scale(1.05);
+    }
+    .profile-avatar svg{
+      width:20px; height:20px;
+      fill:#fff;
+    }
 
+    /* --- Hero billboard --- */
+    .hero{
+      position:relative; min-height:92vh; display:grid; align-items:center;
+      padding:0 clamp(16px,4vw,48px); isolation:isolate;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.3)),
+        url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&auto=format&fit=crop') center/cover no-repeat;
+    }
+    .hero::after{
+      content:""; position:absolute; left:0; right:0; bottom:-1px; height:160px;
+      background:linear-gradient(to top,var(--bg),transparent); z-index:0;
+    }
+    .hero-content{max-width:720px; position:relative; z-index:1}
+    .hero h1{font-size: clamp(32px,8vw,68px); line-height:1.05; margin:0 0 .25em}
+    .hero .sub{font-size: clamp(16px,3.2vw,22px); color:var(--muted); margin:0 0 .6em}
+    .hero .desc{font-size: clamp(14px,2.6vw,18px); color:#d2d2d2; max-width:54ch; margin:0 0 1em}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; border:0; cursor:pointer;
+      font-weight:700; border-radius:4px; padding:12px 22px; transition:filter .15s;
+      text-decoration:none;
+    }
+    .btn:focus{outline:2px solid var(--ring); outline-offset:2px}
+    .btn-white{background:#fff; color:#000}
+    .btn-white:hover{filter:brightness(.92)}
+    .btn-ghost{background:rgba(109,109,110,.7); color:#fff}
+    .btn-ghost:hover{filter:brightness(1.1)}
 
-        <div class = "col-span-12 md:col-span-6 p-4">
-            
-            <a href = "https://storiesatmac.wordpress.com/2019/04/09/hes-helping-mental-health-through-coding-zachary-jordan/" target="_blank" class = "kill-link-style">
-                <div class = "move-up-slightly p-6 md:p-10 rounded-lg shadow hover:shadow-xl cursor-pointer hover:bg-green-400 text-green-400 hover:text-gray-900 bg-gray-900 text-gray-50">
-                    <div class = "font-extrabold inherit text-3xl md:text-4xl">Stories at Mac <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-8 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg></div>
-                    <div class = "text-white font-bold italic mt-2 text-2xl">Helping mental health through programming.</div>
-                </div>
-            </a>
+    .section{padding: 28px clamp(16px,4vw,48px) 8px}
+    .section-title{font-size:20px; font-weight:700; color:#e5e5e5; margin:0 0 10px}
+
+    .rail{ position:relative; }
+    
+    /* Scroll buttons */
+    .scroll-btn{
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:48px; height:48px; border-radius:50%;
+      background:rgba(0,0,0,.7); border:2px solid rgba(255,255,255,.2);
+      color:#fff; font-size:32px; font-weight:300;
+      cursor:pointer; z-index:10;
+      display:grid; place-items:center;
+      transition:all .2s ease;
+      user-select:none;
+    }
+    .scroll-btn:hover{
+      background:rgba(0,0,0,.9);
+      border-color:rgba(255,255,255,.4);
+      transform:translateY(-50%) scale(1.1);
+    }
+    .scroll-btn:focus{
+      outline:2px solid var(--ring);
+      outline-offset:2px;
+    }
+    .scroll-left{ left:8px; }
+    .scroll-right{ right:8px; }
+    
+    .scroller{
+      display:flex; gap:10px; overflow:auto; scroll-behavior:smooth; padding-bottom:18px;
+      scroll-snap-type: x proximity;
+    }
+    .scroller::-webkit-scrollbar{height:8px}
+    .scroller::-webkit-scrollbar-track{background:var(--rail)}
+    .scroller::-webkit-scrollbar-thumb{background:var(--thumb); border-radius:4px}
+    .scroller:focus{outline:2px solid var(--ring); outline-offset:2px}
+
+    .card{
+      position:relative; min-width:290px; height:168px; border-radius:8px; overflow:hidden;
+      background:#222; scroll-snap-align:start; flex-shrink:0; transform-origin:center; transition:transform .2s ease;
+    }
+    .card:hover{transform:scale(1.06); z-index:5}
+    .thumb{width:100%; height:100%; object-fit:cover}
+    .overlay{
+      position:absolute; inset:auto 0 0 0; padding:16px;
+      background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+      opacity:0; transition:opacity .18s ease;
+    }
+    .card:hover .overlay{opacity:1}
+    .title{font-size:15px; font-weight:800; margin:0 0 6px}
+    /* Hire Me Contact Section */
+    .contact-container{
+      max-width:800px; margin:0 auto; padding:24px 0;
+    }
+    .contact-grid{
+      display:grid; gap:24px; margin-top:32px;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .contact-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:12px;
+      padding:32px 24px;
+      text-align:center;
+      transition:all .3s ease;
+      text-decoration:none;
+      color:inherit;
+      display:block;
+    }
+    .contact-card:hover{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.2);
+      transform:translateY(-4px);
+    }
+    .contact-icon{
+      width:48px; height:48px;
+      margin:0 auto 16px;
+      background:var(--accent);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+    }
+    .contact-icon svg{
+      width:24px; height:24px;
+      fill:#fff;
+    }
+    .contact-card h3{
+      font-size:18px;
+      font-weight:700;
+      margin:0 0 8px;
+      color:#fff;
+    }
+    .contact-card p{
+      font-size:14px;
+      color:#b3b3b3;
+      margin:0;
+      word-break:break-word;
+    }
+    
+    /* Footer */
+    .footer{
+      padding:48px clamp(16px,4vw,48px) 32px;
+      border-top:1px solid rgba(255,255,255,.1);
+      margin-top:48px;
+    }
+    .footer .links{
+      display:flex; gap:16px; flex-wrap:wrap; margin-bottom:24px;
+      justify-content:center;
+    }
+    .footer .links a{
+      color:#808080; text-decoration:none; font-size:13px;
+      transition:color .2s;
+    }
+    .footer .links a:hover{ color:#fff; }
+    .footer .copyright{
+      text-align:center; color:#808080; font-size:12px; margin:0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro (Netflix style with name) -->
+  <div class="netflix-intro" aria-hidden="true">
+    <div class="netflix-logo" aria-label="ANGEL CONTRERAS">
+      <h1 class="intro-text">
+        <span>A</span><span>N</span><span>G</span><span>E</span><span>L</span><span style="margin-right:0.3em;"> </span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>R</span><span>A</span><span>S</span>
+      </h1>
+    </div>
+  </div>
+
+  <!-- Who's watching -->
+  <div id="profiles" class="profiles" role="dialog" aria-labelledby="whosWatching" aria-modal="true">
+    <div class="profiles-wrap">
+      <h2 id="whosWatching" class="nf">Who's watching?</h2>
+      <div class="grid">
+        <!-- Recruiter (clickable) -->
+        <button class="tile" data-profile="recruiter" data-target="#portfolio" aria-label="Recruiter profile">
+          <div class="avatar av-recruiter" aria-hidden="true">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v3h-7v1a1 1 0 0 1-2 0V12H2V9a3 3 0 0 1 3-3h5Zm2-1h0a1 1 0 0 0-1 1v1h2V6a1 1 0 0 0-1-1ZM2 13h9v1a1 1 0 0 0 2 0v-1h9v5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-5Z"/>
+              </svg>
+            </span>
+          </div>
+          <span class="label">Recruiter</span>
+        </button>
+
+        <!-- Friends / Family (disabled) -->
+        <button class="tile disabled" data-profile="family" data-target="#home" aria-label="Friends and Family profile" aria-disabled="true" tabindex="-1">
+          <div class="avatar av-family" aria-hidden="true">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 2a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm8 2c-3.31 0-6 1.79-6 4v1h12v-1c0-2.21-2.69-4-6-4Zm-8 0c-3.31 0-6 1.79-6 4v1h8v-1c0-1.03.39-1.97 1.07-2.76A7.2 7.2 0 0 0 8 15Z"/>
+              </svg>
+            </span>
+          </div>
+          <span class="label">Friends / Family</span>
+        </button>
+
+        <!-- Guest (disabled) -->
+        <button class="tile disabled" data-profile="guest" data-target="#home" aria-label="Guest profile" aria-disabled="true" tabindex="-1">
+          <div class="avatar av-guest" aria-hidden="true">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm-3.5 9a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 8.5 11Zm9 2.5a5.5 5.5 0 0 1-11 0 1 1 0 0 1 2 0 3.5 3.5 0 0 0 7 0 1 1 0 0 1 2 0ZM15.5 11A1.5 1.5 0 1 1 17 9.5 1.5 1.5 0 0 1 15.5 11Z"/>
+              </svg>
+            </span>
+          </div>
+          <span class="label">Guest</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- App -->
+  <div class="main" id="appRoot">
+    <!-- Nav -->
+    <nav class="navbar" id="navbar">
+      <button class="brand nf" id="brandHome" aria-label="Reset to intro">Angel Contreras</button>
+      <div class="navlinks" role="navigation" aria-label="Primary">
+        <a href="#home" id="navHome">Home</a>
+        <a href="#portfolio" id="navPortfolio">Portfolio</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="contact.html">Hire Me</a>
+      </div>
+      <button class="profile-avatar" id="profileAvatar" aria-label="Recruiter profile" title="Recruiter">
+        <svg viewBox="0 0 24 24">
+          <path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v3h-7v1a1 1 0 0 1-2 0V12H2V9a3 3 0 0 1 3-3h5Zm2-1h0a1 1 0 0 0-1 1v1h2V6a1 1 0 0 0-1-1ZM2 13h9v1a1 1 0 0 0 2 0v-1h9v5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-5Z"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="home">
+      <div class="hero-content">
+        <h1 class="nf" style="white-space:nowrap">ANGEL CONTRERAS - CSULA STUDENT</h1>
+        <p class="sub">Full Stack Developer &amp; IT Professional</p>
+        <p class="desc">Passionate about building innovative solutions and creating seamless digital experiences. Breaking into tech, one project at a time.</p>
+        <div class="cta">
+          <a class="btn btn-white" href="#portfolio"><span aria-hidden="true">▶</span> Resume</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/angel-contreras-488539195/" target="_blank" rel="noopener"><span aria-hidden="true">ℹ</span> LinkedIn</a>
         </div>
+      </div>
+    </header>
 
-        <div class = "col-span-12 md:col-span-6 p-4">
-            <a href = "https://www.macalester.edu/news/2020/08/change-in-plans/" target="_blank" class = "kill-link-style">
-            <div class = "move-up-slightly p-6 md:p-10 rounded-lg shadow hover:shadow-xl cursor-pointer hover:bg-green-400 text-green-400 hover:text-gray-900 bg-gray-900 text-gray-50">
-                <div class = "font-extrabold inherit text-3xl md:text-4xl">Change in Plans <svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-8 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg></div>
-                <div class = "text-white font-bold italic mt-2 text-2xl">Article Writing about Easy EMDR's Work During COVID-19.</div>
+    <!-- Portfolio (renamed from Professional) -->
+    <section class="section" id="portfolio">
+      <h2 class="section-title">Today's Top Picks for Recruiter</h2>
+      <div class="rail">
+        <button class="scroll-btn scroll-left" aria-label="Scroll left">‹</button>
+        <div class="scroller" tabindex="0" aria-label="Portfolio carousel">
+          <article class="card" style="background:#2a2a2a">
+            <img class="thumb" alt="Project Charter Website" loading="lazy"
+                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Project Charter Website</h3>
+              <p class="meta">Interactive web-based project management tool</p>
             </div>
-            </a>
+          </article>
+
+          <article class="card">
+            <img class="thumb" alt="Portfolio Website" loading="lazy"
+                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=901&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Portfolio Website</h3>
+              <p class="meta">Personal portfolio showcasing skills and projects</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="thumb" alt="IT Management System" loading="lazy"
+                 src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1000&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">IT Management System</h3>
+              <p class="meta">Full-stack application for IT project tracking</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="thumb" alt="Database Design" loading="lazy"
+                 src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?w=1000&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Database Design</h3>
+              <p class="meta">Optimized database architecture</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="thumb" alt="Web Development" loading="lazy"
+                 src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1000&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Web Development</h3>
+              <p class="meta">Responsive website designs</p>
+            </div>
+          </article>
         </div>
-       
+        <button class="scroll-btn scroll-right" aria-label="Scroll right">›</button>
+      </div>
+    </section>
 
-        
-
-     
-    </div>
-    </div>
-  </div>  
-
-  <div class = "w-full bg-gray-200 text-center block p-4">
-    <span class = "font-extrabold text-gray-900 text-xl">
-        <div class = "mt-1">© <script>document.write(new Date().getFullYear())</script> Zachary Jordan. All Rights Reserved.</div></span>
-        <a href = "https://www.patreon.com/zacharyjordan" target="_blank">
-        <div class = "text-xl mt-3 font-extrabold text-gray-50 bg-gray-900 hover:bg-green-500 hover:border-green-500 duration-200 cursor-pointer hover:shadow-md hover:text-gray-900 border-4 p-2 inline-block rounded-md border-gray-900 ">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25" stroke="currentColor" class="relative -top-0.5 inline-block h-6 w-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
-          </svg>
-           Support my work
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <h2 class="section-title">Continue Watching for Recruiter</h2>
+      <div class="rail">
+        <button class="scroll-btn scroll-left" aria-label="Scroll skills left">‹</button>
+        <div class="scroller" tabindex="0" aria-label="Skills carousel">
+          <article class="card">
+            <img class="thumb" alt="Movies" loading="lazy"
+                 src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1000&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Movies</h3>
+              <p class="meta">Film enthusiast & cinephile</p>
+            </div>
+          </article>
+          <article class="card">
+            <img class="thumb" alt="Shows" loading="lazy"
+                 src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1000&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Shows</h3>
+              <p class="meta">Binge-watcher & series lover</p>
+            </div>
+          </article>
+          <article class="card">
+            <img class="thumb" alt="Blog" loading="lazy"
+                 src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1000&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Blog</h3>
+              <p class="meta">Thoughts & insights</p>
+            </div>
+          </article>
+          <a href="contact.html" class="card" style="text-decoration:none; cursor:pointer">
+            <img class="thumb" alt="Contact Me" loading="lazy"
+                 src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=1000&auto=format&fit=crop">
+            <div class="overlay">
+              <h3 class="title">Contact Me</h3>
+              <p class="meta">Let's connect & collaborate</p>
+            </div>
+          </a>
         </div>
-    </a>
+        <button class="scroll-btn scroll-right" aria-label="Scroll skills right">›</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <nav class="links" aria-label="Footer">
+        <a href="mailto:angel@example.com">Email</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="contact.html">Hire Me</a>
+        <a href="#home" id="footerHome">Back to top</a>
+      </nav>
+      <p class="copyright">© <span id="year"></span> Angel Contreras. All rights reserved.</p>
+    </footer>
   </div>
-  </div>
-  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src = "js/script.js"></script>
+
+  <script>
+    // ---------- Nav on scroll ----------
+    const navbar = document.getElementById('navbar');
+    addEventListener('scroll', () => {
+      if (window.scrollY > 80) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }, { passive: true });
+
+    // ---------- Year ----------
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---------- "Ta-dum"-style intro (Netflix-inspired sound) ----------
+    async function playTaDum(){
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      const ctx = new Ctx();
+      const now = ctx.currentTime;
+
+      const master = ctx.createGain();
+      master.gain.setValueAtTime(1.0, now);
+      master.gain.exponentialRampToValueAtTime(0.0001, now + 2.5);
+      master.connect(ctx.destination);
+
+      function noiseBurst(t, dur = 0.25, gain = 0.8){
+        const buf = ctx.createBuffer(1, ctx.sampleRate * dur, ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i=0;i<d.length;i++) d[i] = (Math.random()*2-1) * (1 - i/d.length);
+        const src = ctx.createBufferSource(); src.buffer = buf;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(gain, t);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+        src.connect(g); g.connect(master); src.start(t); src.stop(t + dur + 0.05);
+      }
+
+      function hit(t, { type='sine', f0=60, f1=45, g0=1.0, gDur=0.9, len=1.0 } = {}){
+        const osc = ctx.createOscillator(); osc.type = type;
+        osc.frequency.setValueAtTime(f0, t);
+        osc.frequency.exponentialRampToValueAtTime(f1, t + gDur);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(g0, t + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + gDur);
+        const delay = ctx.createDelay(); delay.delayTime.setValueAtTime(0.012, t);
+        osc.connect(g); g.connect(delay); delay.connect(master);
+        osc.start(t); osc.stop(t + len);
+      }
+
+      // Netflix-style "TA-DUM" two-hit signature - LOUDER VERSION
+      hit(now, { type:'sine', f0:52, f1:38, g0:2.0, gDur:1.0, len:1.2 });
+      noiseBurst(now, 0.25, 1.5);
+      hit(now + 0.40, { type:'triangle', f0:415, f1:349, g0:1.8, gDur:1.0, len:1.4 });
+      noiseBurst(now + 0.40, 0.20, 1.2);
+
+      // Airy reverb tail - louder
+      const tail = ctx.createBuffer(1, ctx.sampleRate * 0.6, ctx.sampleRate);
+      const td = tail.getChannelData(0);
+      for (let i=0;i<td.length;i++) td[i] = (Math.random()*2-1) * (1 - i/td.length);
+      const tailSrc = ctx.createBufferSource(); tailSrc.buffer = tail;
+      const bpf = ctx.createBiquadFilter(); bpf.type='bandpass'; bpf.frequency.setValueAtTime(1600, now+0.6); bpf.Q.value = 3;
+      const gTail = ctx.createGain(); gTail.gain.setValueAtTime(0.25, now+0.6);
+      gTail.gain.exponentialRampToValueAtTime(0.0001, now+2.2);
+      tailSrc.connect(bpf); bpf.connect(gTail); gTail.connect(master);
+      tailSrc.start(now+0.6); tailSrc.stop(now+2.3);
+    }
+
+    // ---------- Carousels ----------
+    function setupRail(rail){
+      const scroller = rail.querySelector('.scroller');
+      const left = rail.querySelector('.scroll-left');
+      const right = rail.querySelector('.scroll-right');
+      if (!scroller || !left || !right) return;
+      
+      const step = () => Math.round(scroller.clientWidth * 0.9);
+      left.addEventListener('click', () => scroller.scrollBy({left:-step(), behavior:'smooth'}));
+      right.addEventListener('click', () => scroller.scrollBy({left: step(), behavior:'smooth'}));
+      scroller.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); scroller.scrollBy({left: step(), behavior:'smooth'}); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); scroller.scrollBy({left:-step(), behavior:'smooth'}); }
+      });
+      const updateBtns = () => {
+        const max = scroller.scrollWidth - scroller.clientWidth - 1;
+        left.style.display  = scroller.scrollLeft <= 2 ? 'none' : 'grid';
+        right.style.display = scroller.scrollLeft >= max ? 'none' : 'grid';
+      };
+      scroller.addEventListener('scroll', updateBtns, { passive:true });
+      new ResizeObserver(updateBtns).observe(scroller);
+      updateBtns();
+    }
+    document.querySelectorAll('.rail').forEach(setupRail);
+
+    // ---------- Flow: Intro -> Profiles -> Main ----------
+    const introSel = '.netflix-intro';
+    const profiles = document.getElementById('profiles');
+    const appRoot = document.getElementById('appRoot');
+    let afterIntroTimer = null;
+
+    function showProfiles(){
+      profiles.classList.add('show');
+      profiles.querySelector('.tile:not(.disabled)')?.focus();
+    }
+    function hideProfiles(){ profiles.classList.remove('show'); }
+    function showMain(){ appRoot.classList.add('show'); }
+    function hideMain(){ appRoot.classList.remove('show'); }
+
+    // autoplay with interaction fallback
+    function kickIntro(){
+      let started = false;
+      const start = async () => {
+        if (started) return; started = true;
+        try { await playTaDum(); } catch {}
+        window.removeEventListener('click', start);
+        window.removeEventListener('keydown', start);
+        window.removeEventListener('touchstart', start);
+      };
+      setTimeout(start, 300);
+      window.addEventListener('click', start, { once:true });
+      window.addEventListener('keydown', start, { once:true });
+      window.addEventListener('touchstart', start, { once:true });
+    }
+
+    function scheduleAfterIntro(){
+      if (afterIntroTimer) clearTimeout(afterIntroTimer);
+      afterIntroTimer = setTimeout(() => {
+        showProfiles();
+      }, 2700);
+    }
+
+    function replayIntro(){
+      const intro = document.querySelector(introSel);
+      const parent = intro.parentNode;
+      const clone = intro.cloneNode(true);
+      parent.replaceChild(clone, intro);
+    }
+
+    function resetToIntro(){
+      hideProfiles();
+      hideMain();
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      replayIntro();
+      kickIntro();
+      scheduleAfterIntro();
+    }
+
+    function handleProfileClick(e){
+      if (this.classList.contains('disabled') || this.getAttribute('aria-disabled') === 'true'){
+        e && e.preventDefault();
+        return;
+      }
+      const target = this.getAttribute('data-target') || '#portfolio';
+      hideProfiles(); 
+      showMain();
+      setTimeout(() => {
+        const el = document.querySelector(target);
+        if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+      }, 100);
+    }
+
+    // Wire profile tiles
+    document.querySelectorAll('.tile').forEach(btn => {
+      btn.addEventListener('click', handleProfileClick);
+      btn.addEventListener('keydown', (e) => {
+        if (btn.classList.contains('disabled')) return;
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleProfileClick.call(btn, e); }
+      });
+    });
+
+    // Brand resets to full intro (with sound)
+    document.getElementById('brandHome').addEventListener('click', resetToIntro);
+
+    // Home nav opens Who's Watching (no intro, no sound)
+    const navHome = document.getElementById('navHome');
+    const footerHome = document.getElementById('footerHome');
+    const profileAvatar = document.getElementById('profileAvatar');
+    
+    function openProfilesFromNav(e){
+      e.preventDefault();
+      hideMain();
+      showProfiles();
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    navHome.addEventListener('click', openProfilesFromNav);
+    footerHome.addEventListener('click', openProfilesFromNav);
+    
+    // Profile avatar click opens Who's Watching
+    profileAvatar.addEventListener('click', openProfilesFromNav);
+
+    // Boot
+    window.addEventListener('DOMContentLoaded', () => {
+      // CRITICAL: Force scroll to absolute top on load
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
+      
+      // Prevent any auto-scrolling
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      
+      kickIntro();
+      scheduleAfterIntro();
+    });
+    
+    // Also ensure we're at top when page becomes visible
+    window.addEventListener('pageshow', () => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
+    });
+    
+    // Force top on beforeunload
+    window.addEventListener('beforeunload', () => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+  </script>
 </body>
 </html>
