@@ -3,759 +3,604 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Angel Contreras — Netflix-style</title>
-  <meta name="color-scheme" content="dark">
-
-  <!-- Free fallback; swap to licensed Netflix Sans via @font-face if you have it -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  
-  <!-- Force page to start at top -->
-  <script>
-    // MUST be in head to prevent any scroll before page loads
-    if (history.scrollRestoration) {
-      history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-  </script>
-
+  <title>Breaking Into Tech: My Career Entry Strategy</title>
   <style>
-    :root{
-      --bg:#141414; --ink:#fff; --muted:#e5e5e5; --ink-2:#b3b3b3;
-      --panel:#000; --accent:#E50914; --rail:#1a1a1a; --thumb:#4a4a4a;
-      --ring:rgba(255,255,255,.14);
+    :root {
+      --ink: #1a1a1a;
     }
-    *{box-sizing:border-box; margin:0; padding:0}
-    html,body{height:100%; overflow-x:hidden}
-    html{scroll-behavior:smooth; overflow-y:scroll; position:relative}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
-      background:var(--bg); color:var(--ink); position:relative;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #fff; color: var(--ink);
+      line-height: 1.8; padding: 40px 20px; position: relative;
+      font-size: 16px;
     }
-
-    .nf{
-      font-family:"Netflix Sans","Bebas Neue",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
-      letter-spacing:.015em;
-      text-transform:uppercase;
+    /* subtle background texture */
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 86px, rgba(0,0,0,.015) 86px, rgba(0,0,0,.015) 87px),
+        repeating-linear-gradient(60deg, transparent, transparent 86px, rgba(0,0,0,.015) 86px, rgba(0,0,0,.015) 87px),
+        repeating-linear-gradient(120deg, transparent, transparent 86px, rgba(0,0,0,.015) 86px, rgba(0,0,0,.015) 87px);
+      background-size: 100px 173px;
     }
-
-    /* --- Intro (Netflix style with text) --- */
-    .netflix-intro{
-      position:fixed; inset:0; display:grid; place-items:center;
-      background:#000; z-index:10000; animation:hideIntro .5s ease 2.6s forwards;
-    }
-    .netflix-logo{ 
-      display:grid; place-items:center; 
-      animation:logoZoom 1.8s ease both; 
-    }
-    .intro-text{
-      font-family:"Netflix Sans","Bebas Neue",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
-      font-weight:900;
-      font-size:clamp(48px, 12vw, 140px);
-      letter-spacing:.15em;
-      text-transform:uppercase;
-      color:#E50914;
-      margin:0;
-      text-shadow:
-        0 0 20px rgba(229,9,20,.6),
-        0 0 40px rgba(229,9,20,.4),
-        0 0 60px rgba(229,9,20,.2);
-      position:relative;
-      /* Bridge arch effect using inline-block spans */
-      display:flex;
-      justify-content:center;
-      align-items:baseline;
-    }
-    .intro-text span{
-      display:inline-block;
-      position:relative;
-    }
-    /* Create arch by adjusting individual letter positions */
-    .intro-text span:nth-child(1) { transform:translateY(30px); }
-    .intro-text span:nth-child(2) { transform:translateY(20px); }
-    .intro-text span:nth-child(3) { transform:translateY(12px); }
-    .intro-text span:nth-child(4) { transform:translateY(7px); }
-    .intro-text span:nth-child(5) { transform:translateY(3px); }
-    .intro-text span:nth-child(6) { transform:translateY(1px); }
-    .intro-text span:nth-child(7) { transform:translateY(0px); } /* Peak */
-    .intro-text span:nth-child(8) { transform:translateY(0px); } /* Peak */
-    .intro-text span:nth-child(9) { transform:translateY(1px); }
-    .intro-text span:nth-child(10) { transform:translateY(3px); }
-    .intro-text span:nth-child(11) { transform:translateY(7px); }
-    .intro-text span:nth-child(12) { transform:translateY(12px); }
-    .intro-text span:nth-child(13) { transform:translateY(20px); }
-    .intro-text span:nth-child(14) { transform:translateY(30px); }
-    .intro-text span:nth-child(15) { transform:translateY(40px); }
-    @keyframes logoZoom{ 
-      0%{transform:scale(.6);opacity:0}
-      55%{transform:scale(1.12);opacity:1}
-      100%{transform:scale(1)}
-    }
-    @keyframes hideIntro{to{opacity:0; visibility:hidden}}
-
-    /* --- Who's Watching --- */
-    .profiles{
-      position:fixed; inset:0; display:none; align-items:center; justify-content:center;
-      background:#000; z-index:9000;
-    }
-    .profiles.show{ display:flex; animation:fadeIn .35s ease both; }
-    .profiles-wrap{ width:min(1000px,92vw); margin:auto; text-align:center; }
-    .profiles h2{
-      font:900 clamp(20px,3.2vw,32px)/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:#fff; margin:0 0 22px;
+    body::after {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(0,0,0,.01) 0%, transparent 3%),
+        radial-gradient(circle at 85% 15%, rgba(0,0,0,.01) 0%, transparent 2.5%),
+        radial-gradient(circle at 45% 80%, rgba(0,0,0,.01) 0%, transparent 3.5%),
+        radial-gradient(circle at 75% 60%, rgba(0,0,0,.01) 0%, transparent 2%),
+        radial-gradient(circle at 25% 50%, rgba(0,0,0,.01) 0%, transparent 2.8%);
     }
 
-    .grid{
-      display:grid; gap:22px;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      place-items:center;
+    .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .header { text-align: center; padding: 60px 20px; border-bottom: 3px solid var(--ink); margin-bottom: 50px; position: relative; overflow: hidden; }
+    .header::before {
+      content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; z-index: 0;
+      background-image:
+        linear-gradient(30deg, transparent 48%, rgba(0,0,0,.02) 48%, rgba(0,0,0,.02) 52%, transparent 52%),
+        linear-gradient(90deg, transparent 48%, rgba(0,0,0,.02) 48%, rgba(0,0,0,.02) 52%, transparent 52%),
+        linear-gradient(150deg, transparent 48%, rgba(0,0,0,.02) 48%, rgba(0,0,0,.02) 52%, transparent 52%);
+      background-size: 60px 104px;
     }
-    @media (max-width: 680px){
-      .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+    .header h1, .header p { position: relative; z-index: 1; }
+    .header h1 { font-weight: 400; letter-spacing: 2px; margin-bottom: 15px; color: var(--ink); font-size: clamp(28px, 5vw, 48px); }
+    .header p { font-size: 16px; color: #666; font-style: italic; }
+
+    .student-info { background: #f8f8f8; padding: 30px; margin-bottom: 50px; border-left: 4px solid var(--ink); }
+    .student-info h3 { font-size: 20px; font-weight: 400; margin-bottom: 20px; color: var(--ink); }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px; }
+    .info-item { padding: 15px 0; }
+    .info-label { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 5px; }
+    .info-value { font-size: 16px; color: var(--ink); }
+
+    .toc { background: #f8f8f8; padding: 40px; margin-bottom: 50px; border: 2px solid var(--ink); }
+    .toc h2 { font-size: 24px; font-weight: 400; margin-bottom: 25px; color: var(--ink); }
+    .toc ol { list-style-position: inside; font-size: 16px; }
+    .toc li { margin: 12px 0; cursor: pointer; transition: all .2s ease; }
+    .toc li:hover { margin-left: 10px; font-weight: 700; }
+    .toc a { color: var(--ink); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    .section { margin-bottom: 60px; padding: 40px 0; border-bottom: 1px solid #e0e0e0; scroll-margin-top: 16px; }
+    .section:last-child { border-bottom: none; }
+
+    .section-header { margin-bottom: 30px; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f8f8; border: 1px solid #e0e0e0; transition: all .3s ease; }
+    .section-header:hover { background: #f0f0f0; }
+    .section-title { font-size: clamp(20px, 3.2vw, 28px); font-weight: 400; color: var(--ink); margin-bottom: 0; }
+    .toggle-icon { font-size: 24px; color: #666; transition: transform .3s ease; min-width: 30px; text-align: center; }
+    .toggle-icon.open { transform: rotate(0deg); }
+    .toggle-icon.closed { transform: rotate(-90deg); }
+
+    .section-content { font-size: 16px; color: #333; max-height: 5000px; overflow: hidden; transition: max-height .3s ease, opacity .3s ease; opacity: 1; }
+    .section-content.hidden { max-height: 0; opacity: 0; overflow: hidden; }
+    .section-content h3, .section-content h4 { font-weight: 400; margin: 25px 0 15px; color: var(--ink); }
+    .section-content h3 { font-size: 22px; }
+    .section-content h4 { font-size: 18px; }
+    .section-content p { margin: 15px 0; text-align: justify; }
+    .section-content ul { margin: 20px 0 20px 40px; list-style-type: disc; }
+    .section-content li { margin: 10px 0; }
+
+    .scope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 30px; margin: 30px 0; }
+    .scope-card { padding: 25px; border: 2px solid var(--ink); }
+    .scope-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+    .scope-card ul { margin: 0 0 0 20px; }
+
+    .table-wrap { width: 100%; overflow-x: auto; }
+    .stakeholder-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 14px; min-width: 720px; }
+    .stakeholder-table th { background: var(--ink); color: #fff; padding: 15px; text-align: left; font-weight: 400; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+    .stakeholder-table td { padding: 15px; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+    .stakeholder-table tr:hover { background: #f8f8f8; }
+
+    .status-reports { margin: 30px 0; }
+    .status-report { background: #f8f8f8; border: 2px solid var(--ink); padding: 30px; margin-bottom: 30px; }
+    .report-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid var(--ink); }
+    .report-header h3 { margin: 0; font-size: 24px; font-weight: 400; }
+    .report-status { padding: 8px 16px; border-radius: 4px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .status-green { background: #4caf50; color: #fff; }
+    .status-at-risk { background: #ff9800; color: #fff; }
+    .report-content h4 { font-size: 16px; font-weight: 700; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink); }
+    .report-content ul { margin: 10px 0 20px 20px; }
+    .report-content p { margin: 10px 0; }
+
+    .milestone-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    .milestone-table th { background: #e0e0e0; padding: 10px; text-align: left; font-weight: 700; border-bottom: 2px solid var(--ink); }
+    .milestone-table td { padding: 10px; border-bottom: 1px solid #e0e0e0; }
+
+    .image-container { margin: 40px 0; text-align: center; }
+    .image-container img { max-width: 100%; height: auto; border: 1px solid #e0e0e0; margin: 20px 0; }
+
+    .task-image-pair { display: flex; gap: 30px; align-items: flex-start; margin: 40px 0; }
+    .completion-box { flex-shrink: 0; width: 280px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 25px; box-shadow: 0 10px 30px rgba(102,126,234,.3); position: relative; overflow: hidden; }
+    .completion-box::before { content: "✓"; position: absolute; top: -20px; right: -20px; font-size: 120px; color: rgba(255,255,255,.1); font-weight: bold; }
+    .completion-box h4 { color: #fff; font-size: 18px; font-weight: 700; margin: 0 0 20px; text-transform: uppercase; letter-spacing: 2px; position: relative; z-index: 1; }
+    .completion-box ul { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
+    .completion-box li { color: #fff; margin: 12px 0; padding-left: 30px; position: relative; font-size: 14px; line-height: 1.6; }
+    .completion-box li::before { content: "✓"; position: absolute; left: 0; font-size: 18px; font-weight: bold; color: #4caf50; }
+    .task-image-pair img { flex: 1; max-width: calc(100% - 310px); height: auto; border: 1px solid #e0e0e0; }
+
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--ink); color: #fff; padding: 15px 20px; border: none; cursor: pointer; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: all .3s ease; z-index: 100; }
+    .back-to-top:hover { background: #333; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+      html { scroll-behavior: auto; }
     }
 
-    .tile{
-      display:grid; gap:10px; place-items:center; cursor:pointer; text-decoration:none;
-      user-select:none; outline:none; background:transparent; border:0;
-    }
-    .tile.disabled{ cursor:not-allowed; }
-    .avatar{
-      width:min(32vw,180px); height:min(32vw,180px);
-      border-radius:10px; overflow:hidden;
-      border:2px solid transparent; box-shadow:0 0 0 0 rgba(255,255,255,.0);
-      transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease, filter .12s ease;
-      display:grid; place-items:center;
-    }
-    .tile:not(.disabled):focus .avatar,
-    .tile:not(.disabled):hover .avatar{
-      transform:scale(1.04);
-      border-color:#fff;
-      box-shadow:0 0 0 4px rgba(255,255,255,.12);
-      filter:brightness(1.06);
-    }
-    .tile.disabled .avatar{ filter:grayscale(1) brightness(.75); border-color:transparent; }
-    .label{
-      font-weight:800; color:#a3a3a3; letter-spacing:.04em; font-size:14px;
-      text-transform:none;
-    }
+    @media print { .back-to-top { display: none; } }
 
-    /* Avatar color blocks */
-    .av-recruiter { background:linear-gradient(180deg,#0DB5FF,#0070F3); }
-    .av-family    { background:linear-gradient(180deg,#25E26A,#0AA84B); }
-    .av-guest     { background:linear-gradient(180deg,#FFB21E,#FF7A00); }
-
-    .icon{ width:56%; height:56%; display:block }
-    .icon svg{ width:100%; height:100%; fill:#fff }
-
-    .hide{ display:none !important; }
-
-    .main{ opacity:0; }
-    .main.show{ animation:fadeIn .6s ease forwards; }
-    @keyframes fadeIn{ to{ opacity:1 } }
-
-    /* --- Navbar --- */
-    .navbar{
-      position:fixed; inset:0 auto auto 0; width:100%;
-      padding:14px clamp(16px,4vw,48px);
-      display:flex; align-items:center; gap:32px;
-      z-index:1000;
-      background:linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
-      transition:background .25s ease, box-shadow .25s ease;
-    }
-    .navbar.scrolled{ background:#0f0f0f; box-shadow:0 2px 0 rgba(255,255,255,.04) inset; }
-    .brand{
-      background:none; border:0; padding:0; margin:0;
-      font-weight:900; color:var(--accent); letter-spacing:-.04em; font-size:clamp(22px,3.2vw,32px);
-      cursor:pointer;
-      flex-shrink:0;
-    }
-
-    .navlinks{display:flex; gap:22px; align-items:center; flex-wrap:wrap; flex:1;}
-    .navlinks a{
-      color:#e5e5e5; text-decoration:none; font-size:14px; font-weight:600;
-    }
-    .navlinks a:hover{color:var(--ink-2)}
-    
-    /* Profile Avatar in Navbar */
-    .profile-avatar{
-      margin-left:auto;
-      width:40px; height:40px;
-      border-radius:6px;
-      background:linear-gradient(180deg,#0DB5FF,#0070F3);
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-      transition:transform .2s ease;
-      flex-shrink:0;
-    }
-    .profile-avatar:hover{
-      transform:scale(1.05);
-    }
-    .profile-avatar svg{
-      width:20px; height:20px;
-      fill:#fff;
-    }
-
-    /* --- Hero billboard --- */
-    .hero{
-      position:relative; min-height:92vh; display:grid; align-items:center;
-      padding:0 clamp(16px,4vw,48px); isolation:isolate;
-      background:
-        linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.3)),
-        url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&auto=format&fit=crop') center/cover no-repeat;
-    }
-    .hero::after{
-      content:""; position:absolute; left:0; right:0; bottom:-1px; height:160px;
-      background:linear-gradient(to top,var(--bg),transparent); z-index:0;
-    }
-    .hero-content{max-width:720px; position:relative; z-index:1}
-    .hero h1{font-size: clamp(32px,8vw,68px); line-height:1.05; margin:0 0 .25em}
-    .hero .sub{font-size: clamp(16px,3.2vw,22px); color:var(--muted); margin:0 0 .6em}
-    .hero .desc{font-size: clamp(14px,2.6vw,18px); color:#d2d2d2; max-width:54ch; margin:0 0 1em}
-    .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px; border:0; cursor:pointer;
-      font-weight:700; border-radius:4px; padding:12px 22px; transition:filter .15s;
-      text-decoration:none;
-    }
-    .btn:focus{outline:2px solid var(--ring); outline-offset:2px}
-    .btn-white{background:#fff; color:#000}
-    .btn-white:hover{filter:brightness(.92)}
-    .btn-ghost{background:rgba(109,109,110,.7); color:#fff}
-    .btn-ghost:hover{filter:brightness(1.1)}
-
-    .section{padding: 28px clamp(16px,4vw,48px) 8px}
-    .section-title{font-size:20px; font-weight:700; color:#e5e5e5; margin:0 0 10px}
-
-    .rail{ position:relative; }
-    
-    /* Scroll buttons */
-    .scroll-btn{
-      position:absolute; top:50%; transform:translateY(-50%);
-      width:48px; height:48px; border-radius:50%;
-      background:rgba(0,0,0,.7); border:2px solid rgba(255,255,255,.2);
-      color:#fff; font-size:32px; font-weight:300;
-      cursor:pointer; z-index:10;
-      display:grid; place-items:center;
-      transition:all .2s ease;
-      user-select:none;
-    }
-    .scroll-btn:hover{
-      background:rgba(0,0,0,.9);
-      border-color:rgba(255,255,255,.4);
-      transform:translateY(-50%) scale(1.1);
-    }
-    .scroll-btn:focus{
-      outline:2px solid var(--ring);
-      outline-offset:2px;
-    }
-    .scroll-left{ left:8px; }
-    .scroll-right{ right:8px; }
-    
-    .scroller{
-      display:flex; gap:10px; overflow:auto; scroll-behavior:smooth; padding-bottom:18px;
-      scroll-snap-type: x proximity;
-    }
-    .scroller::-webkit-scrollbar{height:8px}
-    .scroller::-webkit-scrollbar-track{background:var(--rail)}
-    .scroller::-webkit-scrollbar-thumb{background:var(--thumb); border-radius:4px}
-    .scroller:focus{outline:2px solid var(--ring); outline-offset:2px}
-
-    .card{
-      position:relative; min-width:290px; height:168px; border-radius:8px; overflow:hidden;
-      background:#222; scroll-snap-align:start; flex-shrink:0; transform-origin:center; transition:transform .2s ease;
-    }
-    .card:hover{transform:scale(1.06); z-index:5}
-    .thumb{width:100%; height:100%; object-fit:cover}
-    .overlay{
-      position:absolute; inset:auto 0 0 0; padding:16px;
-      background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
-      opacity:0; transition:opacity .18s ease;
-    }
-    .card:hover .overlay{opacity:1}
-    .title{font-size:15px; font-weight:800; margin:0 0 6px}
-    /* Hire Me Contact Section */
-    .contact-container{
-      max-width:800px; margin:0 auto; padding:24px 0;
-    }
-    .contact-grid{
-      display:grid; gap:24px; margin-top:32px;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-    }
-    .contact-card{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:12px;
-      padding:32px 24px;
-      text-align:center;
-      transition:all .3s ease;
-      text-decoration:none;
-      color:inherit;
-      display:block;
-    }
-    .contact-card:hover{
-      background:rgba(255,255,255,.08);
-      border-color:rgba(255,255,255,.2);
-      transform:translateY(-4px);
-    }
-    .contact-icon{
-      width:48px; height:48px;
-      margin:0 auto 16px;
-      background:var(--accent);
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-    }
-    .contact-icon svg{
-      width:24px; height:24px;
-      fill:#fff;
-    }
-    .contact-card h3{
-      font-size:18px;
-      font-weight:700;
-      margin:0 0 8px;
-      color:#fff;
-    }
-    .contact-card p{
-      font-size:14px;
-      color:#b3b3b3;
-      margin:0;
-      word-break:break-word;
-    }
-    
-    /* Footer */
-    .footer{
-      padding:48px clamp(16px,4vw,48px) 32px;
-      border-top:1px solid rgba(255,255,255,.1);
-      margin-top:48px;
-    }
-    .footer .links{
-      display:flex; gap:16px; flex-wrap:wrap; margin-bottom:24px;
-      justify-content:center;
-    }
-    .footer .links a{
-      color:#808080; text-decoration:none; font-size:13px;
-      transition:color .2s;
-    }
-    .footer .links a:hover{ color:#fff; }
-    .footer .copyright{
-      text-align:center; color:#808080; font-size:12px; margin:0;
+    @media (max-width: 768px) {
+      body { padding: 20px 15px; }
+      .header h1 { font-size: clamp(24px, 7vw, 32px); }
+      .toc { padding: 25px; }
+      .section { padding: 20px 0; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .stakeholder-table { font-size: 12px; }
+      .stakeholder-table th, .stakeholder-table td { padding: 10px; }
+      .task-image-pair { flex-direction: column; }
+      .completion-box { width: 100%; }
+      .task-image-pair img { max-width: 100%; }
     }
   </style>
 </head>
 <body>
-  <!-- Intro (Netflix style with name) -->
-  <div class="netflix-intro" aria-hidden="true">
-    <div class="netflix-logo" aria-label="ANGEL CONTRERAS">
-      <h1 class="intro-text">
-        <span>A</span><span>N</span><span>G</span><span>E</span><span>L</span><span style="margin-right:0.3em;"> </span><span>C</span><span>O</span><span>N</span><span>T</span><span>R</span><span>E</span><span>R</span><span>A</span><span>S</span>
-      </h1>
-    </div>
-  </div>
-
-  <!-- Who's watching -->
-  <div id="profiles" class="profiles" role="dialog" aria-labelledby="whosWatching" aria-modal="true">
-    <div class="profiles-wrap">
-      <h2 id="whosWatching" class="nf">Who's watching?</h2>
-      <div class="grid">
-        <!-- Recruiter (clickable) -->
-        <button class="tile" data-profile="recruiter" data-target="#portfolio" aria-label="Recruiter profile">
-          <div class="avatar av-recruiter" aria-hidden="true">
-            <span class="icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v3h-7v1a1 1 0 0 1-2 0V12H2V9a3 3 0 0 1 3-3h5Zm2-1h0a1 1 0 0 0-1 1v1h2V6a1 1 0 0 0-1-1ZM2 13h9v1a1 1 0 0 0 2 0v-1h9v5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-5Z"/>
-              </svg>
-            </span>
-          </div>
-          <span class="label">Recruiter</span>
-        </button>
-
-        <!-- Friends / Family (disabled) -->
-        <button class="tile disabled" data-profile="family" data-target="#home" aria-label="Friends and Family profile" aria-disabled="true" tabindex="-1">
-          <div class="avatar av-family" aria-hidden="true">
-            <span class="icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 2a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm8 2c-3.31 0-6 1.79-6 4v1h12v-1c0-2.21-2.69-4-6-4Zm-8 0c-3.31 0-6 1.79-6 4v1h8v-1c0-1.03.39-1.97 1.07-2.76A7.2 7.2 0 0 0 8 15Z"/>
-              </svg>
-            </span>
-          </div>
-          <span class="label">Friends / Family</span>
-        </button>
-
-        <!-- Guest (disabled) -->
-        <button class="tile disabled" data-profile="guest" data-target="#home" aria-label="Guest profile" aria-disabled="true" tabindex="-1">
-          <div class="avatar av-guest" aria-hidden="true">
-            <span class="icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm-3.5 9a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 8.5 11Zm9 2.5a5.5 5.5 0 0 1-11 0 1 1 0 0 1 2 0 3.5 3.5 0 0 0 7 0 1 1 0 0 1 2 0ZM15.5 11A1.5 1.5 0 1 1 17 9.5 1.5 1.5 0 0 1 15.5 11Z"/>
-              </svg>
-            </span>
-          </div>
-          <span class="label">Guest</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- App -->
-  <div class="main" id="appRoot">
-    <!-- Nav -->
-    <nav class="navbar" id="navbar">
-      <button class="brand nf" id="brandHome" aria-label="Reset to intro">Angel Contreras</button>
-      <div class="navlinks" role="navigation" aria-label="Primary">
-        <a href="#home" id="navHome">Home</a>
-        <a href="#portfolio" id="navPortfolio">Portfolio</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="contact.html">Hire Me</a>
-      </div>
-      <button class="profile-avatar" id="profileAvatar" aria-label="Recruiter profile" title="Recruiter">
-        <svg viewBox="0 0 24 24">
-          <path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1h3a3 3 0 0 1 3 3v3h-7v1a1 1 0 0 1-2 0V12H2V9a3 3 0 0 1 3-3h5Zm2-1h0a1 1 0 0 0-1 1v1h2V6a1 1 0 0 0-1-1ZM2 13h9v1a1 1 0 0 0 2 0v-1h9v5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-5Z"/>
-        </svg>
-      </button>
-    </nav>
-
-    <!-- Hero -->
-    <header class="hero" id="home">
-      <div class="hero-content">
-        <h1 class="nf" style="white-space:nowrap">ANGEL CONTRERAS - CSULA STUDENT</h1>
-        <p class="sub">Full Stack Developer &amp; IT Professional</p>
-        <p class="desc">Passionate about building innovative solutions and creating seamless digital experiences. Breaking into tech, one project at a time.</p>
-        <div class="cta">
-          <a class="btn btn-white" href="#portfolio"><span aria-hidden="true">▶</span> Resume</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/angel-contreras-488539195/" target="_blank" rel="noopener"><span aria-hidden="true">ℹ</span> LinkedIn</a>
-        </div>
-      </div>
+  <div class="container">
+    <header class="header">
+      <h1>Breaking Into Tech: My Career Entry Strategy</h1>
     </header>
 
-    <!-- Portfolio (renamed from Professional) -->
-    <section class="section" id="portfolio">
-      <h2 class="section-title">Today's Top Picks for Recruiter</h2>
-      <div class="rail">
-        <button class="scroll-btn scroll-left" aria-label="Scroll left">‹</button>
-        <div class="scroller" tabindex="0" aria-label="Portfolio carousel">
-          <article class="card" style="background:#2a2a2a">
-            <img class="thumb" alt="Project Charter Website" loading="lazy"
-                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Project Charter Website</h3>
-              <p class="meta">Interactive web-based project management tool</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="thumb" alt="Portfolio Website" loading="lazy"
-                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=901&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Portfolio Website</h3>
-              <p class="meta">Personal portfolio showcasing skills and projects</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="thumb" alt="IT Management System" loading="lazy"
-                 src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1000&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">IT Management System</h3>
-              <p class="meta">Full-stack application for IT project tracking</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="thumb" alt="Database Design" loading="lazy"
-                 src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?w=1000&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Database Design</h3>
-              <p class="meta">Optimized database architecture</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <img class="thumb" alt="Web Development" loading="lazy"
-                 src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1000&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Web Development</h3>
-              <p class="meta">Responsive website designs</p>
-            </div>
-          </article>
+    <section class="student-info" aria-labelledby="student-info-title">
+      <h3 id="student-info-title">Student Information</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Student Name</div>
+          <div class="info-value">Angel Antonio Contreras-Reyes</div>
         </div>
-        <button class="scroll-btn scroll-right" aria-label="Scroll right">›</button>
+        <div class="info-item">
+          <div class="info-label">Course</div>
+          <div class="info-value">Managing IT Projects</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Semester</div>
+          <div class="info-value">Fall 2025</div>
+        </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section class="section" id="skills">
-      <h2 class="section-title">Continue Watching for Recruiter</h2>
-      <div class="rail">
-        <button class="scroll-btn scroll-left" aria-label="Scroll skills left">‹</button>
-        <div class="scroller" tabindex="0" aria-label="Skills carousel">
-          <article class="card">
-            <img class="thumb" alt="Movies" loading="lazy"
-                 src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1000&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Movies</h3>
-              <p class="meta">Film enthusiast & cinephile</p>
-            </div>
-          </article>
-          <article class="card">
-            <img class="thumb" alt="Shows" loading="lazy"
-                 src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1000&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Shows</h3>
-              <p class="meta">Binge-watcher & series lover</p>
-            </div>
-          </article>
-          <article class="card">
-            <img class="thumb" alt="Blog" loading="lazy"
-                 src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1000&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Blog</h3>
-              <p class="meta">Thoughts & insights</p>
-            </div>
-          </article>
-          <a href="contact.html" class="card" style="text-decoration:none; cursor:pointer">
-            <img class="thumb" alt="Contact Me" loading="lazy"
-                 src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=1000&auto=format&fit=crop">
-            <div class="overlay">
-              <h3 class="title">Contact Me</h3>
-              <p class="meta">Let's connect & collaborate</p>
-            </div>
-          </a>
-        </div>
-        <button class="scroll-btn scroll-right" aria-label="Scroll skills right">›</button>
+    <nav class="toc" aria-label="Table of contents">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#section1">Project Title & Description</a></li>
+        <li><a href="#section2">Vision, Mission & Strategy Alignment</a></li>
+        <li><a href="#section3">Business Case & Justification</a></li>
+        <li><a href="#section4">High-Level Scope</a></li>
+        <li><a href="#section5">Stakeholder Register</a></li>
+        <li><a href="#section6">Methodology Explanation</a></li>
+        <li><a href="#section7">Project Tool</a></li>
+        <li><a href="#section8">Weekly Status Reports</a></li>
+      </ol>
+    </nav>
+
+    <section class="section" id="section1">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section1-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">1. Project Title & Description</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section1-content">
+        <h3>Project Title: My Goal</h3>
+        <p>I am choosing to pursue an entry-level position in Information Technology. I selected this project because it directly supports my academic and professional development. By optimizing a variety of software tools, I can set a pace where establishing myself in the IT field is possible by the end of the semester.</p>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <nav class="links" aria-label="Footer">
-        <a href="mailto:angel@example.com">Email</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="contact.html">Hire Me</a>
-        <a href="#home" id="footerHome">Back to top</a>
-      </nav>
-      <p class="copyright">© <span id="year"></span> Angel Contreras. All rights reserved.</p>
-    </footer>
+    <section class="section" id="section2">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section2-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">2. Vision, Mission & Strategy Alignment</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section2-content">
+        <h4>Personal Mission Connection:</h4>
+        <p>Create and refine a plan where deliverables/milestones can be met for landing an entry-level position in the field of Information Technology.</p>
+        <h4>Vision Alignment:</h4>
+        <p>Transitioning into the industry where I can apply and gain knowledge/skills in relation to the IT field. By being in alignment with the stated trajectory all desired facets can be achieved.</p>
+        <h4>Strategic Goal Support:</h4>
+        <p>The field of Tech can prove overwhelming by the large amount of career choice. Curating the development of this personal project will structure the importance of different tasks that need to be accomplished.</p>
+      </div>
+    </section>
+
+    <section class="section" id="section3">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section3-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">3. Business Case & Justification</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section3-content">
+        <h4>Professional Value:</h4>
+        <p>Building this project will expose me to new skills and apply them to future endeavors.</p>
+        <h4>Personal Value:</h4>
+        <p>This project will allow me to focus on building my skills in a realistic and achievable way within the given semester.</p>
+        <h4>Learning Outcomes:</h4>
+        <p>I intend to procure technical skills during the course of this project, as well as obtaining project management experience while also gaining more industry knowledge.</p>
+      </div>
+    </section>
+
+    <section class="section" id="section4">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section4-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">4. High-Level Scope</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section4-content">
+        <div class="scope-grid">
+          <div class="scope-card">
+            <h4>In Scope for Semester Project</h4>
+            <ul>
+              <li>Personal Introduction & Background</li>
+              <li>Skills Inventory</li>
+              <li>Resume Development</li>
+              <li>Coursework & Certifications</li>
+              <li>Career Goals & Roadmap</li>
+              <li>Work Samples/Projects Section</li>
+              <li>Reflection & Growth Summary</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <h4>Roadmap Items (≤6 Months)</h4>
+            <ul>
+              <li>Earn an Entry-Level IT Certification</li>
+              <li>Build a Personal Website/Portfolio</li>
+              <li>Expand Project Showcase</li>
+              <li>Professional Networking Growth</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <h4>Out of Scope</h4>
+            <ul>
+              <li>Advanced Research Work</li>
+              <li>Developing Full Software Applications</li>
+              <li>Industry-Level Certification Beyond Entry-Level</li>
+              <li>Paid Professional Experience</li>
+              <li>Cross-Disciplinary Projects</li>
+              <li>Full Business Startup or Entrepreneurial Venture</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section5">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section5-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">5. Stakeholder Register</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section5-content">
+        <div class="table-wrap">
+          <table class="stakeholder-table">
+            <thead>
+              <tr>
+                <th>Stakeholder</th>
+                <th>Category</th>
+                <th>Role/Interest</th>
+                <th>Power</th>
+                <th>Interest</th>
+                <th>Engagement Strategy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Potential Employers/Clients</td>
+                <td>External</td>
+                <td>To quickly find specific examples of your best work, assess your skills, and understand your brand</td>
+                <td>High</td>
+                <td>High</td>
+                <td>Manage Closely - Ensure the site is user-friendly, showcases relevant projects prominently, and has clear, accessible contact information.</td>
+              </tr>
+              <tr>
+                <td>The Creator</td>
+                <td>Internal</td>
+                <td>The project owner and primary driver. You need a platform that effectively represents your brand and professional abilities</td>
+                <td>High</td>
+                <td>High</td>
+                <td>Manage Closely - Define clear objectives for the site. Conduct regular self-reviews and performance tracking.</td>
+              </tr>
+              <tr>
+                <td>Friends and Family</td>
+                <td>External</td>
+                <td>Personal network that can provide a "sanity check" and initial feedback on the site's design</td>
+                <td>Low</td>
+                <td>High</td>
+                <td>Keep Informed - Share updates and ask for general feedback on the look, feel, and clarity of the site.</td>
+              </tr>
+              <tr>
+                <td>Recruiters/HR Professionals</td>
+                <td>External</td>
+                <td>To efficiently scan your credentials, skills, and experience for potential job fit</td>
+                <td>High</td>
+                <td>Medium</td>
+                <td>Keep Satisfied - Ensure your resume is easily downloadable and that your skills are clearly listed.</td>
+              </tr>
+              <tr>
+                <td>Mentors/Industry Peers</td>
+                <td>External</td>
+                <td>To review your work and provide expert feedback on your projects and overall presentation</td>
+                <td>Medium</td>
+                <td>Medium</td>
+                <td>Keep Informed - Send direct links to specific projects for targeted feedback.</td>
+              </tr>
+              <tr>
+                <td>Website Hosting/Platform</td>
+                <td>Internal</td>
+                <td>The technical foundation of your site. Need to manage costs and technical requirements</td>
+                <td>Medium</td>
+                <td>Low</td>
+                <td>Keep Satisfied - Research and choose a reliable host or platform that meets your needs.</td>
+              </tr>
+              <tr>
+                <td>The General Public</td>
+                <td>External</td>
+                <td>General visitors who may stumble upon your site through search engines or social media</td>
+                <td>Low</td>
+                <td>Low</td>
+                <td>Monitor - Focus on a clean design and clear navigation.</td>
+              </tr>
+              <tr>
+                <td>Educational Institution/Instructor</td>
+                <td>External</td>
+                <td>Assess the quality, completeness, and professionalism of the portfolio as part of course evaluation</td>
+                <td>High</td>
+                <td>Medium</td>
+                <td>Keep Satisfied - Follow assignment requirements closely, submit polished deliverables.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="image-container">
+          <img src="square.JPG" alt="Power-Interest Grid" loading="lazy" />
+          <img src="deliv.JPG" alt="Deliverables Breakdown" loading="lazy" />
+          <img src="supermoney.JPG" alt="Budget Estimation" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section6">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section6-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">6. Methodology Explanation</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section6-content">
+        <h4>Hybrid Approach</h4>
+        <p>I'll be going with a Hybrid - Iterative approach. It lets me stay on track and prioritize deliverables, as well as adapting flexibly while moving toward a fulfilling promised vision statement.</p>
+        <div class="image-container">
+          <img src="hybridflow.JPG" alt="Methodology Diagram" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section7">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section7-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">7. Project Tool</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section7-content">
+        <h4>Microsoft Planner</h4>
+        <p>I went with Microsoft Planner. Visually the tool has a great aesthetic, with a user-friendly interface to boot. I particularly enjoy the automated variety of view-boards, my favorite being the charts tabs. There is an option given to attach URL links for assignments which isn't ideal, but seeing as I'll be using GitHub as a repository convenience won't be an issue.</p>
+
+        <!-- Pair 1 (Charts) -->
+        <div class="task-image-pair">
+          <div class="completion-box">
+            <h4>Tasks</h4>
+            <ul>
+              <li>Connect with Professionals</li>
+              <li>Setup Tracker</li>
+            </ul>
+          </div>
+          <img src="chartz.JPG" alt="Microsoft Planner Charts View" loading="lazy" />
+        </div>
+
+        <!-- Pair 2 (Grid) -->
+        <div class="task-image-pair">
+          <div class="completion-box">
+            <h4>Tasks</h4>
+            <ul>
+              <li>Draft project schedule &amp; milestones</li>
+              <li>Setup GitHub repository</li>
+              <li>Choose Certification</li>
+            </ul>
+          </div>
+          <img src="grid.JPG" alt="Microsoft Planner Grid View" loading="lazy" />
+        </div>
+
+        <!-- Pair 3 (Board) -->
+        <div class="task-image-pair">
+          <div class="completion-box">
+            <h4>Tasks</h4>
+            <ul>
+              <li>Select AI builder tool</li>
+              <li>Update Profile &amp; Headline</li>
+              <li>Add Portfolio Link</li>
+            </ul>
+          </div>
+          <img src="board.JPG" alt="Microsoft Planner Board View" loading="lazy" />
+        </div>
+
+        <!-- Pair 4 (Schedule) -->
+        <div class="task-image-pair">
+          <div class="completion-box">
+            <h4>Tasks</h4>
+            <ul>
+              <li>Study &amp; Practice</li>
+              <li>Take Certificate Exam</li>
+            </ul>
+          </div>
+          <img src="shedule.JPG" alt="Microsoft Planner Schedule View" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section8">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="false" aria-controls="section8-content" onclick="toggleSection(this)" onkeypress="if(event.key==='Enter'||event.key===' ') toggleSection(this)">
+        <h2 class="section-title">8. Weekly Status Reports</h2>
+        <div class="toggle-icon closed">▼</div>
+      </div>
+      <div class="section-content hidden" id="section8-content">
+        <div class="status-reports">
+          <article class="status-report">
+            <div class="report-header">
+              <h3>Week 7 - Oct 3rd 2025</h3>
+              <span class="report-status status-green">On Track</span>
+            </div>
+            <div class="report-content">
+              <h4>Accomplishments This Week:</h4>
+              <ul>
+                <li>Completed project charter initial draft</li>
+                <li>Identified key stakeholders</li>
+                <li>Selected Microsoft Planner as project management tool</li>
+              </ul>
+              <h4>Work Planned for Next Week:</h4>
+              <ul>
+                <li>Deliverable 1</li>
+                <li>Deliverable 2</li>
+              </ul>
+              <h4>Issues/Blockers:</h4>
+              <ul><li>None at this time</li></ul>
+              <h4>Charter Updates:</h4>
+              <p>Initial charter created with all required sections.</p>
+            </div>
+          </article>
+
+          <article class="status-report">
+            <div class="report-header">
+              <h3>Week 9 - Oct 19th 2025</h3>
+              <span class="report-status status-at-risk">At Risk</span>
+            </div>
+            <div class="report-content">
+              <h4>Executive Summary:</h4>
+              <p>The project status is going steadily, but more progress needs to be made. This past week was more loaded than prior workloads, with two other separate school projects requiring immediate attention. After viewing this upcoming week's schedule I should have time to make this class project the priority.</p>
+              <h4>Accomplishments This Week:</h4>
+              <ul>
+                <li>Implemented Web Format</li>
+                <li>Got a peer review on LinkedIn</li>
+                <li>Received Certificate</li>
+              </ul>
+              <h4>Work Planned for Next Week:</h4>
+              <ul>
+                <li>Job Submission</li>
+                <li>Request LinkedIn reviews</li>
+                <li>Finish Team Project</li>
+              </ul>
+              <h4>Upcoming Milestones:</h4>
+              <table class="milestone-table">
+                <thead>
+                  <tr><th>Milestone</th><th>Target Date</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Portfolio</td><td>10/18/2025</td><td>ON TRACK</td></tr>
+                  <tr><td>LinkedIn</td><td>10/18/2025</td><td>ON TRACK</td></tr>
+                  <tr><td>Job Tracker</td><td>10/18/2025</td><td>ON TRACK</td></tr>
+                </tbody>
+              </table>
+              <h4>Issues &amp; Risks / Mitigations:</h4>
+              <p>No issues or risks identified for this reporting period.</p>
+              <h4>Changes Since Last Report:</h4>
+              <p>No changes occurred since the last reporting period.</p>
+            </div>
+          </article>
+
+          <article class="status-report">
+            <div class="report-header">
+              <h3>Week 10 - Oct 25th 2025</h3>
+              <span class="report-status status-green">On Track</span>
+            </div>
+            <div class="report-content">
+              <h4>Executive Summary:</h4>
+              <p>The project is back on track, with the website portion making strides in its design. I gamified the use of Claude ai, by only working on the web building of the project to the point where Claude will not allow the user to proceed until a specified time. I now look forward to those set times where I then crank-out as much productivity as possible to the UI.</p>
+              <h4>Accomplishments This Week:</h4>
+              <ul>
+                <li>Website</li>
+                <li>Linkedin</li>
+                <li>Discipline</li>
+              </ul>
+              <h4>Work Planned for Next Week:</h4>
+              <ul>
+                <li>Linkedin feedback</li>
+                <li>Design &amp; UI</li>
+                <li>Project Planner</li>
+              </ul>
+              <h4>Upcoming Milestones:</h4>
+              <table class="milestone-table">
+                <thead>
+                  <tr><th>Milestone</th><th>Target Date</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Portfolio</td><td>10/24/2025</td><td>ON TRACK</td></tr>
+                  <tr><td>Job Tracker</td><td>10/24/2025</td><td>AT RISK</td></tr>
+                  <tr><td>Linkedin</td><td>10/24/2025</td><td>ON TRACK</td></tr>
+                </tbody>
+              </table>
+              <h4>Issues &amp; Risks / Mitigations:</h4>
+              <p><strong>Job Tracker</strong> — <em>MEDIUM</em><br />Mitigation: I need to start looking into reaching out to companies.</p>
+              <h4>Changes Since Last Report:</h4>
+              <p><strong>Change #1</strong><br />
+                <strong>Date:</strong> 2025-10-25<br />
+                <strong>Description:</strong> The web building portion of the project was falling seriously behind.<br />
+                <strong>Reason / Impact if not made:</strong> We are not back on track, after checking-in with instructor, Maria Espinoza.</p>
+            </div>
+          </article>
+
+          <article class="status-report">
+            <div class="report-header">
+              <h3>Week 11 - Nov 2nd 2025</h3>
+              <span class="report-status status-green">On Track</span>
+            </div>
+            <div class="report-content">
+              <h4>Executive Summary:</h4>
+              <p>All is well in the world of this projects health. I'm getting people outside of campus in agreeing to recorded interview, although they have yet to be conducted. The job search is slow but moving.</p>
+              <h4>Accomplishments This Week:</h4>
+              <ul>
+                <li>Began job search</li>
+                <li>Team Charter created</li>
+                <li>Portfolio progression</li>
+              </ul>
+              <h4>Plan for Next Week:</h4>
+              <ul>
+                <li>Portfolio web design</li>
+                <li>Continue job hunt</li>
+                <li>Team Meeting</li>
+              </ul>
+              <h4>Upcoming Milestones:</h4>
+              <table class="milestone-table">
+                <thead>
+                  <tr><th>Milestone</th><th>Target Date</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Create &amp; Design</td><td>11/1/2025</td><td>ON TRACK</td></tr>
+                  <tr><td>Job Tracker</td><td>11/1/2025</td><td>ON TRACK</td></tr>
+                  <tr><td>LinkedIn &amp; Networking</td><td>11/1/2025</td><td>ON TRACK</td></tr>
+                </tbody>
+              </table>
+              <h4>Issues &amp; Risks / Mitigations:</h4>
+              <p>No issues or risks identified for this reporting period.</p>
+              <h4>Changes Since Last Report:</h4>
+              <p>No changes occurred since the last reporting period.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </div>
 
+  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
+
   <script>
-    // ---------- Nav on scroll ----------
-    const navbar = document.getElementById('navbar');
-    addEventListener('scroll', () => {
-      if (window.scrollY > 80) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    }, { passive: true });
-
-    // ---------- Year ----------
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ---------- "Ta-dum"-style intro (Netflix-inspired sound) ----------
-    async function playTaDum(){
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return;
-      const ctx = new Ctx();
-      const now = ctx.currentTime;
-
-      const master = ctx.createGain();
-      master.gain.setValueAtTime(1.0, now);
-      master.gain.exponentialRampToValueAtTime(0.0001, now + 2.5);
-      master.connect(ctx.destination);
-
-      function noiseBurst(t, dur = 0.25, gain = 0.8){
-        const buf = ctx.createBuffer(1, ctx.sampleRate * dur, ctx.sampleRate);
-        const d = buf.getChannelData(0);
-        for (let i=0;i<d.length;i++) d[i] = (Math.random()*2-1) * (1 - i/d.length);
-        const src = ctx.createBufferSource(); src.buffer = buf;
-        const g = ctx.createGain();
-        g.gain.setValueAtTime(gain, t);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-        src.connect(g); g.connect(master); src.start(t); src.stop(t + dur + 0.05);
-      }
-
-      function hit(t, { type='sine', f0=60, f1=45, g0=1.0, gDur=0.9, len=1.0 } = {}){
-        const osc = ctx.createOscillator(); osc.type = type;
-        osc.frequency.setValueAtTime(f0, t);
-        osc.frequency.exponentialRampToValueAtTime(f1, t + gDur);
-        const g = ctx.createGain();
-        g.gain.setValueAtTime(0.0001, t);
-        g.gain.exponentialRampToValueAtTime(g0, t + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + gDur);
-        const delay = ctx.createDelay(); delay.delayTime.setValueAtTime(0.012, t);
-        osc.connect(g); g.connect(delay); delay.connect(master);
-        osc.start(t); osc.stop(t + len);
-      }
-
-      // Netflix-style "TA-DUM" two-hit signature - LOUDER VERSION
-      hit(now, { type:'sine', f0:52, f1:38, g0:2.0, gDur:1.0, len:1.2 });
-      noiseBurst(now, 0.25, 1.5);
-      hit(now + 0.40, { type:'triangle', f0:415, f1:349, g0:1.8, gDur:1.0, len:1.4 });
-      noiseBurst(now + 0.40, 0.20, 1.2);
-
-      // Airy reverb tail - louder
-      const tail = ctx.createBuffer(1, ctx.sampleRate * 0.6, ctx.sampleRate);
-      const td = tail.getChannelData(0);
-      for (let i=0;i<td.length;i++) td[i] = (Math.random()*2-1) * (1 - i/td.length);
-      const tailSrc = ctx.createBufferSource(); tailSrc.buffer = tail;
-      const bpf = ctx.createBiquadFilter(); bpf.type='bandpass'; bpf.frequency.setValueAtTime(1600, now+0.6); bpf.Q.value = 3;
-      const gTail = ctx.createGain(); gTail.gain.setValueAtTime(0.25, now+0.6);
-      gTail.gain.exponentialRampToValueAtTime(0.0001, now+2.2);
-      tailSrc.connect(bpf); bpf.connect(gTail); gTail.connect(master);
-      tailSrc.start(now+0.6); tailSrc.stop(now+2.3);
+    function toggleSection(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.toggle-icon');
+      const expanded = header.getAttribute('aria-expanded') === 'true';
+      content.classList.toggle('hidden');
+      icon.classList.toggle('closed');
+      icon.classList.toggle('open');
+      header.setAttribute('aria-expanded', String(!expanded));
     }
-
-    // ---------- Carousels ----------
-    function setupRail(rail){
-      const scroller = rail.querySelector('.scroller');
-      const left = rail.querySelector('.scroll-left');
-      const right = rail.querySelector('.scroll-right');
-      if (!scroller || !left || !right) return;
-      
-      const step = () => Math.round(scroller.clientWidth * 0.9);
-      left.addEventListener('click', () => scroller.scrollBy({left:-step(), behavior:'smooth'}));
-      right.addEventListener('click', () => scroller.scrollBy({left: step(), behavior:'smooth'}));
-      scroller.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); scroller.scrollBy({left: step(), behavior:'smooth'}); }
-        if (e.key === 'ArrowLeft')  { e.preventDefault(); scroller.scrollBy({left:-step(), behavior:'smooth'}); }
-      });
-      const updateBtns = () => {
-        const max = scroller.scrollWidth - scroller.clientWidth - 1;
-        left.style.display  = scroller.scrollLeft <= 2 ? 'none' : 'grid';
-        right.style.display = scroller.scrollLeft >= max ? 'none' : 'grid';
-      };
-      scroller.addEventListener('scroll', updateBtns, { passive:true });
-      new ResizeObserver(updateBtns).observe(scroller);
-      updateBtns();
-    }
-    document.querySelectorAll('.rail').forEach(setupRail);
-
-    // ---------- Flow: Intro -> Profiles -> Main ----------
-    const introSel = '.netflix-intro';
-    const profiles = document.getElementById('profiles');
-    const appRoot = document.getElementById('appRoot');
-    let afterIntroTimer = null;
-
-    function showProfiles(){
-      profiles.classList.add('show');
-      profiles.querySelector('.tile:not(.disabled)')?.focus();
-    }
-    function hideProfiles(){ profiles.classList.remove('show'); }
-    function showMain(){ appRoot.classList.add('show'); }
-    function hideMain(){ appRoot.classList.remove('show'); }
-
-    // autoplay with interaction fallback
-    function kickIntro(){
-      let started = false;
-      const start = async () => {
-        if (started) return; started = true;
-        try { await playTaDum(); } catch {}
-        window.removeEventListener('click', start);
-        window.removeEventListener('keydown', start);
-        window.removeEventListener('touchstart', start);
-      };
-      setTimeout(start, 300);
-      window.addEventListener('click', start, { once:true });
-      window.addEventListener('keydown', start, { once:true });
-      window.addEventListener('touchstart', start, { once:true });
-    }
-
-    function scheduleAfterIntro(){
-      if (afterIntroTimer) clearTimeout(afterIntroTimer);
-      afterIntroTimer = setTimeout(() => {
-        showProfiles();
-      }, 2700);
-    }
-
-    function replayIntro(){
-      const intro = document.querySelector(introSel);
-      const parent = intro.parentNode;
-      const clone = intro.cloneNode(true);
-      parent.replaceChild(clone, intro);
-    }
-
-    function resetToIntro(){
-      hideProfiles();
-      hideMain();
-      window.scrollTo({ top: 0, behavior: 'auto' });
-      replayIntro();
-      kickIntro();
-      scheduleAfterIntro();
-    }
-
-    function handleProfileClick(e){
-      if (this.classList.contains('disabled') || this.getAttribute('aria-disabled') === 'true'){
-        e && e.preventDefault();
-        return;
-      }
-      const target = this.getAttribute('data-target') || '#portfolio';
-      hideProfiles(); 
-      showMain();
-      setTimeout(() => {
-        const el = document.querySelector(target);
-        if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
-      }, 100);
-    }
-
-    // Wire profile tiles
-    document.querySelectorAll('.tile').forEach(btn => {
-      btn.addEventListener('click', handleProfileClick);
-      btn.addEventListener('keydown', (e) => {
-        if (btn.classList.contains('disabled')) return;
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleProfileClick.call(btn, e); }
-      });
-    });
-
-    // Brand resets to full intro (with sound)
-    document.getElementById('brandHome').addEventListener('click', resetToIntro);
-
-    // Home nav opens Who's Watching (no intro, no sound)
-    const navHome = document.getElementById('navHome');
-    const footerHome = document.getElementById('footerHome');
-    const profileAvatar = document.getElementById('profileAvatar');
-    
-    function openProfilesFromNav(e){
-      e.preventDefault();
-      hideMain();
-      showProfiles();
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }
-    navHome.addEventListener('click', openProfilesFromNav);
-    footerHome.addEventListener('click', openProfilesFromNav);
-    
-    // Profile avatar click opens Who's Watching
-    profileAvatar.addEventListener('click', openProfilesFromNav);
-
-    // Boot
-    window.addEventListener('DOMContentLoaded', () => {
-      // CRITICAL: Force scroll to absolute top on load
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      window.scrollTo(0, 0);
-      
-      // Prevent any auto-scrolling
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
-      
-      kickIntro();
-      scheduleAfterIntro();
-    });
-    
-    // Also ensure we're at top when page becomes visible
-    window.addEventListener('pageshow', () => {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      window.scrollTo(0, 0);
-    });
-    
-    // Force top on beforeunload
-    window.addEventListener('beforeunload', () => {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    });
   </script>
 </body>
 </html>
